@@ -3,6 +3,7 @@
 ## Better Bus Stop Route App
 ## Lending Chargers App
 Scenario 1
+![Storyboard](ChargerLendingApp.jpg)
 ## Hotspots for taking photos
 Scenario 1
 ## Travel App
