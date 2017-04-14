@@ -2,22 +2,22 @@
 
 ## Better Bus Stop Route App
 Scenario 1 by David Zech  
-![StoryboardDZ](david-sb1.jpg)
+![StoryboardDZ](images/david-sb1.jpg)
 ## Lending Chargers App
 Scenario 1 by Joey Wong  
-![StoryboardJW](ChargerLendingApp.jpg)
+![StoryboardJW](images/ChargerLendingApp.jpg)
 Scenario 2 by Oscar Pan  
-![StoryboardOP](oscar-ubercharger.jpg)
+![StoryboardOP](images/oscar-ubercharger.jpg)
 ## Hotspots for taking photos
 Scenario 1 by Joey Wong  
-![StoryboardJW2](PhotoHotSpotApp.jpg)
+![StoryboardJW2](images/PhotoHotSpotApp.jpg)
 Scenario 2 by David Zech  
-![StoryboardDZ2](david-sb2.jpg)
+![StoryboardDZ2](images/david-sb2.jpg)
 ## Best Bathrooms on Campus
 Scenario 1 by Max Chen  
-![StoryboardMC](good%20bathrooms-idea.jpg)
+![StoryboardMC](images/good%20bathrooms-idea.jpg)
 ## Hydration Stations (We'll call it Hystation)
 Scenario 1 by Oscar Pan  
-![StoryboardOP2](oscar-hystation.jpg)
+![StoryboardOP2](images/oscar-hystation.jpg)
 Scenario 2 by Max Chen  
-![StoryboardMC2](Hydration-idea.jpg)
+![StoryboardMC2](images/Hydration-idea.jpg)
