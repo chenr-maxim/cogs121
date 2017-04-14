@@ -2,7 +2,7 @@
 Our application allows UCSD students to get to school and around campus efficiently by providing ETAs and how crowded the buses/shuttles are.
 
 ### Idea Influences
-From the feedback given to us from our classmates and TA, we felt this idea had the most potential, even though similar applications exist. What sets our application apart from the rest, would be providing ETAs and accounting for how crowded the buses and shuttles are. Our application would be useful to UCSD students, considering how a large percentage of the student body commute to school via MTS buses, and the lack of an optimal application that makes commuting more time efficient.
+From the feedback given to us from our classmates and TA, we felt this idea had the most potential, even though similar applications exist. Some feedback we got was to include how long the trip to school would take and being able to plan a trip to get to a certain place on campus. What sets our application apart from the rest, would be providing ETAs and accounting for how crowded the buses and shuttles are. Our application would be useful to UCSD students, considering how a large percentage of the student body commute to school via MTS buses, and the lack of an optimal application that makes commuting more time efficient.
 
 ### Our Roles
 We will divide the project based on these tasks:  one member parses real time bus information from the GTFS API, another member draws the route maps given the polygon and works on push notifications, another member develops the user interfaces, and the last member calculates ETAs and develops an algorithm for that calculation. 
