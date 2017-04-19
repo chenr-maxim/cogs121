@@ -7,7 +7,7 @@
 ![PrototypeMC](images/PhotoSpot.jpg)
 
 ### Prototype 3
-![PrototypeOP](images/TripPlanner.jpg)
+![PrototypeOP](images/TripPlanner.JPG)
 
 ### Prototype 4
-![PrototypeDZ](images/PhotoHotspot.jpg)
+![PrototypeDZ](images/PhotoHotspot.JPG)
