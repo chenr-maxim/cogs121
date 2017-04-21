@@ -26,3 +26,7 @@ This prototype shows a map of available tutors on campus after the user requeste
 ### Prototype 6 (Oscar Pan)
 ![Prototype2OP](images/PP-OP-Tutor.jpg)
 This prototype shows both the view of the tutor and the user requesting the service. There is flexibility to expand the app into other services other than tutoring. The user is able to filter the tutors based on classes they're able to tutor for or subjects they're good at. The user is able to pick a tutor based on location, profile, and price.
+
+### Prototype 7 (Max Chen)
+![Prototype2MC](images/tutorFinding.JPG)\
+This prototype first has a page where it lets you choose if you're a tutor or someone that needs help. Once that is identified it puts you to indicate what you need tutoring for. After selecting what you will need help in or the subject you tutor others with it puts you unto a map. Once on the map, you can see the local tutors around your area or users that need help in your particular subject. By clicking on their pins you will be able to see more information and can decide if you want to select that specific person for services. If you do it will begin routing to their location and displaying their contact information.
