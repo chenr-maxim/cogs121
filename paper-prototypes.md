@@ -33,3 +33,4 @@ This prototype first has a page where it lets you choose if you're a tutor or so
 
 ### Prototype 8 (David Zech)
 ![Prototype2DZ](images/david-paperprototype.jpg)
+This prototype helps you find tutors and other helpful services within your immediate area. The goal is to let you find assistance in real time, rather than scheduling appointments. It also lets you be the one offering help, which lets you post a description of what you can do, and the associated contingencies. 
