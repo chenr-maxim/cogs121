@@ -6,6 +6,7 @@ This prototype lets users map out their day with photo hotspots and landmarks mo
 
 ### Prototype 2
 ![PrototypeMC](images/PhotoSpot.jpg)
+This paper prototype basically shows there pinned locations of popular photo spots. Given your location and after clicking that you want to go to that certain spot it will navigate you to the photo location where you can take pictures. Once you take pictures you can share your pictures publicly or privately. 
 
 ### Prototype 3
 ![PrototypeOP](images/TripPlanner.JPG)
