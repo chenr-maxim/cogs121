@@ -15,3 +15,7 @@ This prototype shows the list and map views of popular landmarks and photo spots
 ### Prototype 4 (David Zech)
 ![PrototypeDZ](images/PhotoHotspot.JPG)
 This prototype shows heatmaps (hard to draw, drew pins instead) of popular places to take photos on the map. Clicking on an area will show you a little popover with a timeline of publicly shared photos
+
+##Pivoted Idea to Tutoring Application
+![Prototype2JW](images/TutorApp.jpg)\
+This prototype shows a map of available tutors on campus after the user requested to look for CSE 12 tutors. The application also informs users of the average price, average availability, and average ETA of tutors. The user can request or modify their search and upon requesting, the user will be matched with a tutor based on location, price, and availability. User will be able to have a filter location, price range, availability.
