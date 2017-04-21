@@ -21,3 +21,8 @@ This prototype shows heatmaps (hard to draw, drew pins instead) of popular place
 ### Prototype 5 (Joey Wong)
 ![Prototype2JW](images/TutorApp.jpg)\
 This prototype shows a map of available tutors on campus after the user requested to look for CSE 12 tutors. The application also informs users of the average price, average availability, and average ETA of tutors. The user can request or modify their search and upon requesting, the user will be matched with a tutor based on location, price, and availability. User will be able to have a filter location, price range, availability.
+
+
+### Prototype 6 (Oscar Pan)
+![Prototype2OP](images/PP-OP-Tutor.jpg)
+This prototype shows both the view of the tutor and the user requesting the service. There is flexibility to expand the app into other services other than tutoring. The user is able to filter the tutors based on classes they're able to tutor for or subjects they're good at. The user is able to pick a tutor based on location, profile, and price.
