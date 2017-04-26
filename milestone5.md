@@ -9,7 +9,8 @@ This is just a proof of concept with the mapping, by double clicking on a place 
 
 
 ### Team Roles
+![Ionic](images/ionic.png)
 Oscar: He developed the basic prototype using Meteor and Google Maps. 
-David: He developed another prototype using   Ionic and Google Maps (Native Bridge with Cordova).
-Max: He worked with Oscar to develop the basis of our application (pair programming).
+David: He developed another prototype using Ionic and Google Maps with native GPS data (Native Bridge with Cordova).
+Max: He worked with Oscar to develop the basis of our application(pair programming).
 Joey: She worked with David to develop the basis of the second version of the application (pair programming).
