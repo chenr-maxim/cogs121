@@ -1,8 +1,9 @@
 ### Changes since last time
 
-Merged Ionic and Meteor Frameworks
-Moved to JS Google Map instead of relying on Native (iOS, Android) Google Maps
-Basic realtime backend syncing. Markers are added in realtime to all clients when backend receives it.
+- Merged Ionic and Meteor Frameworks
+- Moved to JS Google Map instead of relying on Native (iOS, Android) Google Maps
+- Basic realtime backend syncing - markers are added in realtime to all clients when backend receives it
+- Created pages
 
 #### Roles:
 - Oscar Pan: Worked on update with real location and created all skeleton pages (html, css, ts, etc).
