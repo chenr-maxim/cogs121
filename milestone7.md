@@ -17,6 +17,6 @@
 #### Roles:
 - Oscar Pan: Worked on update with real location and created all skeleton pages (html, css, ts, etc).
 - David Zech: Set up Ionic + Meteor + Google Maps and added basic map marker sync.
-- Max Chen: Updated the provider(tutor) summary and created client(student) summary.
+- Max Chen: Updated the provider(tutor) summary, created client(student) summary and updated the code inside app.  
 - Joey Wong: Created the client(tutor) summary and selecting services pages.
 
