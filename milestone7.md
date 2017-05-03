@@ -4,6 +4,7 @@
 - Moved to JS Google Map instead of relying on Native (iOS, Android) Google Maps
 - Basic realtime backend syncing - markers are added in realtime to all clients when backend receives it
 - Created pages
+- Basic login
 
 #### Selecting Your Service Page
 ![Screenshot1](images/service.png)
@@ -13,9 +14,11 @@
 ![Screenshot3](images/yourLocation.png)
 #### A Summary of Your Tutoring Service
 ![Screenshot4](images/providerSummary.png)
+#### Basic Login
+![Screenshot5](images/m7-login.PNG)
 
 #### Roles:
-- Oscar Pan: Worked on update with real location and created all skeleton pages (html, css, ts, etc).
+- Oscar Pan: Worked on update with real location and created all skeleton pages (html, css, ts, etc) with basic login.
 - David Zech: Set up Ionic + Meteor + Google Maps and added basic map marker sync.
 - Max Chen: Updated the provider(tutor) summary, created client(student) summary and updated the code inside app.  
 - Joey Wong: Created the client(tutor) summary and selecting services pages.
