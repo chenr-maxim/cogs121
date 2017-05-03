@@ -3,8 +3,8 @@
 - Merged Ionic and Meteor Frameworks
 - Moved to JS Google Map instead of relying on Native (iOS, Android) Google Maps
 - Basic realtime backend syncing - markers are added in realtime to all clients when backend receives it
-- Created pages
-- Basic login
+- Created basic pages for core functionalities of app (summary pages, overview pages)
+- Basic login -- this will get integrated with the marker locations to provide realtime updates
 
 #### Selecting Your Service Page
 ![Screenshot1](images/service.png)
@@ -15,7 +15,7 @@
 #### A Summary of Your Tutoring Service
 ![Screenshot4](images/providerSummary.png)
 #### Basic Login
-![Screenshot5](images/m7-login.PNG)
+![Screenshot5](images/m7-login.png)
 
 #### Roles:
 - Oscar Pan: Worked on update with real location and created all skeleton pages (html, css, ts, etc) with basic login.
