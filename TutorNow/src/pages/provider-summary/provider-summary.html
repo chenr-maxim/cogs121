@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Provider Summary</ion-title>
+    <ion-buttons end>
+      <button ion-button class="done-button" (click)="updateProfile()">Finish</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    Kyle
+  </ion-item>
+
+  <ion-item class="times">
+    <h2>Start Time: 4:13 PM</h2>
+    <h2>End Time: 7:08 PM</h2>
+  </ion-item>
+
+  <ion-item class="stars">
+    <h2>Rate Your Tutor</h2>
+    <button ion-button icon-only>
+      <ion-icon name="star"></ion-icon>
+    </button>
+    <button ion-button icon-only>
+      <ion-icon name="star"></ion-icon>
+    </button>
+  </ion-item>
+
+  <ion-item class="tutor-review">
+    <ion-label stacked>Write a Review</ion-label>
+    <ion-input placeholder="Write a Review"></ion-input>
+  </ion-item>
+
+  <ion-item class="total-cost">
+    <h2>Total Cost</h2>
+    <p>3 hours &times; &#36; 12 &#61; &#36; 36 </p>
+  </ion-item>
+
+  <!-- need to integrate venmo and paypal -->
+
+  <button ion-button round outline>Venmo</button>
+  <button ion-button round outline>Paypal</button>
+</ion-content>
