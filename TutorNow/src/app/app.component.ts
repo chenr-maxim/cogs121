@@ -2,7 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Meteor } from 'meteor/meteor';
 
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChooseServicePage } from '../pages/choose-service/choose-service';
@@ -15,11 +17,13 @@ import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    this.rootPage = Meteor.user() ? HomePage : LoginPage;
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation

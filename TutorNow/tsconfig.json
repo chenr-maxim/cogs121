@@ -20,8 +20,6 @@
     "stripInternal": true,
     "noImplicitAny": false,
     "types": [
-      "@types/meteor",
-      "@types/underscore"
     ]
   },
   "include": [

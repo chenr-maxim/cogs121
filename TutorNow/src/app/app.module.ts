@@ -3,7 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { LoginService } from '../services/login';
 import { MyApp } from './app.component';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChooseServicePage } from '../pages/choose-service/choose-service';
@@ -22,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ChooseServicePage,
     ProviderSummaryPage,
     ClientSummaryPage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +41,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ChooseServicePage,
     ProviderSummaryPage,
     ClientSummaryPage,
+    LoginPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    LoginService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
