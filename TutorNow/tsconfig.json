@@ -20,7 +20,7 @@
     "stripInternal": true,
     "noImplicitAny": false,
     "types": [
-      "meteor-typings",
+      "@types/meteor",
       "@types/underscore"
     ]
   },

@@ -8,8 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-map [latitude]="ucsdLat" [longitude]="ucsdLong" [zoom]="18">
+    <div *ngFor="let provider of providers | async">
+      <agm-marker  [latitude]="provider.latitude" [longitude]="provider.longitude"></agm-marker>
+    </div>
   </agm-map>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
