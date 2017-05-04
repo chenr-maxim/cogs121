@@ -14,5 +14,5 @@ if [ $hasIonic -eq "1" ]
       exit 1
 fi
 npm install
-npm run meteor-client:bundle
+npm run meteor:bundle
 echo "Finished"

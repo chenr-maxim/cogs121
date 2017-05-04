@@ -9,7 +9,8 @@
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "meteor-client:bundle": "meteor-client bundle -s api"
+    "meteor:bundle": "meteor-client bundle -s api",
+    "meteor:bundle-live": "meteor-client bundle --url 'https://cogs121djmo.herokuapp.com' -s api"
   },
   "dependencies": {
     "@agm/core": "^1.0.0-beta.0",
