@@ -12,24 +12,21 @@
 	<div class="form-group">
     	<label for="options">Service Offerings:</label>
     	<div *ngFor="let option of options">
-        	<label>
-            	<input type="checkbox"
+        	<label class="form-group">
+            	<input class="check-box-padding" type="checkbox"
                 	   name="options"
                    	value="{{option.value}}"
-                   	[(ngModel)]="option.checked"/>
+                   	[(ngModel)]="option.checked"/>{{option.name}}
         	</label>
-          <p> option values: {{option.name}}</p>
-
     	</div>
 	</div>
 
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-      <input name="first" ngModel required #first="ngModel">
-      <input name="last" ngModel>
-      <button>Submit</button>
-    </form>
-
-    <p>First name value: {{ first.value }}</p>
+  <div>
+    <ion-item>
+      <ion-label stacked>Provider Radius</ion-label>
+      <ion-input placeholder="Input Mile Radius."> </ion-input>
+    </ion-item>
+  </div>
 
 	<ion-item class="selected-classes">
     <ion-label stacked>Classes</ion-label>
