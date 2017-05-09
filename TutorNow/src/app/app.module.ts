@@ -11,6 +11,8 @@ import { ListPage } from '../pages/list/list';
 import { ChooseServicePage } from '../pages/choose-service/choose-service';
 import { ProviderSummaryPage } from '../pages/provider-summary/provider-summary';
 import { ClientSummaryPage } from '../pages/client-summary/client-summary';
+import { AccountSettingsPage } from '../pages/account-settings/account-settings';
+import { ClientRequestPage } from '../pages/client-request/client-request';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,6 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProviderSummaryPage,
     ClientSummaryPage,
     LoginPage,
+    AccountSettingsPage,
+    ClientRequestPage,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProviderSummaryPage,
     ClientSummaryPage,
     LoginPage,
+    AccountSettingsPage,
+    ClientRequestPage,
   ],
   providers: [
     StatusBar,

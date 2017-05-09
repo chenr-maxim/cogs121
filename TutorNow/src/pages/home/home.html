@@ -3,15 +3,26 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Home {{ currentProvider.latitude }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <agm-map [latitude]="ucsdLat" [longitude]="ucsdLong" [zoom]="18">
     <div *ngFor="let provider of providers | async">
-      <agm-marker  [latitude]="provider.latitude" [longitude]="provider.longitude"></agm-marker>
+      <agm-marker [latitude]="provider.latitude" [longitude]="provider.longitude" (markerClick)="markerClick(provider)">
+        <agm-info-window>{{ provider.latitude }} 
+        <button ion-button round outline class="view-button" (click)="view(provider)">View</button> 
+
+        </agm-info-window>
+
+
+
+
+
+      </agm-marker>
     </div>
+    
   </agm-map>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>

@@ -10,6 +10,9 @@ import { ListPage } from '../pages/list/list';
 import { ChooseServicePage } from '../pages/choose-service/choose-service';
 import { ProviderSummaryPage } from '../pages/provider-summary/provider-summary';
 import { ClientSummaryPage } from '../pages/client-summary/client-summary';
+import { AccountSettingsPage } from '../pages/account-settings/account-settings';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +36,7 @@ export class MyApp {
       { title: 'Choose Services', component: ChooseServicePage },
       { title: 'Provider Summary', component: ProviderSummaryPage },
       { title: 'Client Summary', component: ClientSummaryPage },
+      { title: 'Account Settings', component: AccountSettingsPage },
     ];
 
   }
