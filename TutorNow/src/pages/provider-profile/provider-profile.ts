@@ -44,7 +44,7 @@ export class ProviderProfilePage {
 
 
   onInputKeypress({keyCode}: KeyboardEvent): void {
-    if (keyCode === 13) {
+    if (keyCode === 13 ) {
       this.classes.push(this.classesText);
     }
   }
