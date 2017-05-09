@@ -28,10 +28,12 @@
     </ion-item>
   </div>
 
-	<ion-item class="selected-classes">
-    <ion-label stacked>Classes</ion-label>
-    <ion-input (keypress)="onInputKeypress($event)" placeholder="Please list the classes you can tutor." [(ngModel)]="classesText"></ion-input>
-  </ion-item>
+  <div>
+	 <ion-item class="selected-classes">
+      <ion-label stacked>Classes</ion-label>
+      <ion-input (keypress)="onInputKeypress($event)" placeholder="Please list the classes you can tutor." [(ngModel)]="classesText"></ion-input>
+    </ion-item>
+  </div>
 
 	<div>
 		<ul *ngFor="let class of classes">
@@ -40,4 +42,5 @@
 	</div>
 
 	<button ion-button (click)="presentConfirm()">OFFER</button>
+
 </ion-content>

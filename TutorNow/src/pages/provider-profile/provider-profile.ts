@@ -10,13 +10,6 @@ export class Class {
   name: string;
 }
 
-export class SimpleFormComp {
-  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
-  }
-}
-
 @Component({
   selector: 'page-provider-profile',
   templateUrl: 'provider-profile.html'
@@ -30,23 +23,17 @@ export class ProviderProfilePage {
     private alertCtrl: AlertController) {
   }
 
-  classes = []
 
+  private radius = '';
+  private classesText = '';
+  classes = []
   options = [
-    {name:'Tutoring', value:'1', checked:false},
+    {
+    name:'Tutoring', value:'1', checked:false},
     {name:'Lessons', value:'2', checked:false},
     {name:'Tour Guide', value:'3', checked:false},
     {name:'Miscellaneous', value:'4', checked:false}
   ]
-
-  get selectedOptions() { // right now: ['1','3']
-    return this.options
-              .filter(opt => opt.checked)
-              .map(opt => opt.value)
-  }
-
-  private radius = '';
-  private classesText = '';
 
   onInputKeypress({keyCode}: KeyboardEvent): void {
     if (keyCode === 13) {
