@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Providers } from 'api/collections/providers';
 import { Provider } from 'api/models';
 import * as moment from 'moment';
+import {ClientRequestPage} from '../client-request/client-request';
 
 @Component({
   selector: 'page-home',
@@ -15,14 +16,34 @@ export class HomePage implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
   providers: Observable<Provider[]>;
+  currentProvider = {};
+
+
   constructor(public navCtrl: NavController) {
 
-  }
+  }  
 
   ngOnInit() {
     this.providers = Providers.find(
       {
         //createdAt: { $gte : moment().subtract(5, "minutes").toDate() }
       }).zone();
+
   }
+
+  markerClick(provider){
+    this.currentProvider = provider;
+    console.log(provider);
+  }
+
+  view(provider){
+    this.navCtrl.push(ClientRequestPage, {
+      param: provider
+    })
+
+  }
+
 }
+
+
+
