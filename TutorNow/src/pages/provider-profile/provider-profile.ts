@@ -23,7 +23,6 @@ export class ProviderProfilePage {
     private alertCtrl: AlertController) {
   }
 
-
   private radius = '';
   private classesText = '';
   classes = []
@@ -35,11 +34,22 @@ export class ProviderProfilePage {
     {name:'Miscellaneous', value:'4', checked:false}
   ]
 
+
+  ngOnInit(){
+      Meteor.user();
+      this.radius = Meteor.user().profile.radius;
+      this.classesText = Meteor.user().profile.classes;
+      this.options = Meteor.user().profile.options;
+  }
+
+
   onInputKeypress({keyCode}: KeyboardEvent): void {
     if (keyCode === 13) {
       this.classes.push(this.classesText);
     }
   }
+
+
 
   presentConfirm() {
   let alert = this.alertCtrl.create({

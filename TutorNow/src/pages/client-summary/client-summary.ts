@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-client-summary',
@@ -10,5 +11,9 @@ export class ClientSummaryPage {
     private platform:Platform) {
 
   }
+
+    returnToHome() {
+    	this.navCtrl.popToRoot();
+	}
 
 }
