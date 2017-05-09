@@ -13,8 +13,6 @@ import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { ProviderProfilePage } from '../pages/provider-profile/provider-profile';
 import { InProgressPage } from '../pages/in-progress/in-progress';
 
-
-
 @Component({
   templateUrl: 'app.html'
 })

@@ -10,7 +10,7 @@
 <ion-content>
 
 	<div class="form-group">
-    	<label for="options">Service Offerings:</label>
+    	<label for="options">Select which service to offer:</label>
     	<div *ngFor="let option of options">
         	<label class="form-group">
             	<input class="check-box-padding" type="checkbox"
@@ -24,19 +24,18 @@
   <div>
     <ion-item>
       <ion-label stacked>Provider Radius</ion-label>
-      <ion-input placeholder="Input Mile Radius."> </ion-input>
+      <ion-input placeholder="Input Mile Radius." [(ngModel)]="radius"> </ion-input>
     </ion-item>
   </div>
 
 	<ion-item class="selected-classes">
     <ion-label stacked>Classes</ion-label>
-    <ion-input placeholder="Please list the classes you can tutor."></ion-input>
+    <ion-input (keypress)="onInputKeypress($event)" placeholder="Please list the classes you can tutor." [(ngModel)]="classesText"></ion-input>
   </ion-item>
 
 	<div>
 		<ul *ngFor="let class of classes">
-		<span> {{class.name}}</span> {{class.name}}
-		<h3> test </h3>
+		<span> {{class}}</span>
 		</ul>
 	</div>
 

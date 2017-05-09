@@ -6,7 +6,7 @@ import { Platform, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'choose-service.html'
 })
 export class ChooseServicePage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform) {
 
   }
