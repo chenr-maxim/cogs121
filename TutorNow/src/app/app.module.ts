@@ -13,6 +13,10 @@ import { ProviderSummaryPage } from '../pages/provider-summary/provider-summary'
 import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { ClientRequestPage } from '../pages/client-request/client-request';
+import { ProviderProfilePage } from '../pages/provider-profile/provider-profile';
+import { InProgressPage } from '../pages/in-progress/in-progress';
+
+
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,6 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AccountSettingsPage,
     ClientRequestPage,
+    ProviderProfilePage,
+    InProgressPage,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AccountSettingsPage,
     ClientRequestPage,
+    ProviderProfilePage,
+    InProgressPage,
+
   ],
   providers: [
     StatusBar,
