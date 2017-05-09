@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Provider Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="form-group">
+    	<label for="options">Service Offerings:</label>
+    	<div *ngFor="let option of options">
+        	<label>
+            	<input type="checkbox"
+                	   name="options"
+                   	value="{{option.value}}"
+                   	[(ngModel)]="option.checked"/>
+        	</label>
+          <p> option values: {{option.name}}</p>
+
+    	</div>
+	</div>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input name="first" ngModel required #first="ngModel">
+      <input name="last" ngModel>
+      <button>Submit</button>
+    </form>
+
+    <p>First name value: {{ first.value }}</p>
+
+	<ion-item class="selected-classes">
+    <ion-label stacked>Classes</ion-label>
+    <ion-input placeholder="Please list the classes you can tutor."></ion-input>
+  </ion-item>
+
+	<div>
+		<ul *ngFor="let class of classes">
+		<span> {{class.name}}</span> {{class.name}}
+		<h3> test </h3>
+		</ul>
+	</div>
+
+	<button ion-button (click)="presentConfirm()">OFFER</button>
+</ion-content>

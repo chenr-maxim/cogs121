@@ -6,7 +6,7 @@ import { Platform, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'client-summary.html'
 })
 export class ClientSummaryPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform) {
 
   }
