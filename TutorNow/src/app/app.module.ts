@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { LoginService } from '../services/login';
 import { MyApp } from './app.component';
@@ -37,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     InProgressPage,
   ],
   imports: [
+    Ionic2RatingModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
