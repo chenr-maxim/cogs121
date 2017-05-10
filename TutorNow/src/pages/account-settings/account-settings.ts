@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
 import { Meteor } from 'meteor/meteor';
+import { LoginPage } from '../login/login';
+
 
 
 @Component({
@@ -41,10 +43,10 @@ export class AccountSettingsPage {
   }
 
   logout() {
-  	Meteor.logout(function(err) {
-  	// callback
-  	Session.set("ses",false);
-	});
+  	Meteor.logout();
+  		this.navCtrl.setRoot(LoginPage, {}, {
+              animate: true
+            });
   }
 
 

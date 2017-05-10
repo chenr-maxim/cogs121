@@ -8,6 +8,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html'
 })
 export class LoginPage {
+
   private username = '';
   private password = '';
 
@@ -36,6 +37,16 @@ export class LoginPage {
 
   register(): void {
     this.loginService.register(this.username, this.password).then(() => {
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile": {
+        "name":'',
+        "radius":0,
+        "classes":[],
+        "options":[
+          {name:'Tutoring', value:'1', checked:false},
+          {name:'Lessons', value:'2', checked:false},
+          {name:'Tour Guide', value:'3', checked:false},
+          {name:'Miscellaneous', value:'4', checked:false}],
+      }}});
       this.navCtrl.setRoot(HomePage, {}, {
         animate: true
       });
