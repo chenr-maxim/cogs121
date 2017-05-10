@@ -9,14 +9,18 @@
 
 <ion-content>
 
-  <img class="img-circle" src="../../assets/oscar.jpg">
+  <div style="text-align: center;">
+    <img class="img-circle" src="../../assets/oscar.jpg">
 
-  <img class="img-circle" src="../../assets/oscar2.jpg">
+    <img class="img-circle" src="../../assets/oscar2.jpg">
 
-  <div>
-	<h1>
-		START TIME:
-	</h1>
+    <div>
+      <h1>
+        START TIME: {{ start }}
+      </h1>
+    </div>
+    <button ion-button (click)="finishTutoring()">Finish</button>
   </div>
-  <button ion-button (click)="finishTutoring()">Finish</button>
+
+
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams } from 'ionic-angular';
+import { InProgressPage } from '../in-progress/in-progress';
 
 
 @Component({
@@ -13,6 +14,12 @@ export class ClientRequestPage {
     private platform:Platform){
   	this.user = navParams.get('user');
 
+  }
+
+  request(){
+    this.navCtrl.setRoot(InProgressPage, {}, {
+      animate: true
+    });
   }
 
   cancelToRoot() {
