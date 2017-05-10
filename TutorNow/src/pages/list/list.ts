@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams } from 'ionic-angular';
 import { Providers } from 'api/collections/providers';
 import { Geolocation } from '@ionic-native/geolocation';
+import { TutorLocations } from 'api/collections/tutor-locations';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -10,8 +11,10 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class ListPage implements OnInit, OnDestroy {
   intervalObs: Subscription;
-  lat:number = 32.8812;
-  lng:number = -117.23674;
+  isActive:boolean = false;
+  position:Position;
+  lat:number;
+  lng:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private platform:Platform, private geolocation: Geolocation) {
 
@@ -31,18 +34,26 @@ export class ListPage implements OnInit, OnDestroy {
   reloadLocation() {
     return Observable.fromPromise(
       this.geolocation.getCurrentPosition().then((position) => {
+        console.log(position);
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+        if(this.isActive) {
+          this.publishLocation();
+        }
       }
     ));
   }
 
+  goOnline() : void {
+    this.isActive = true;
+  }
+
+  goOffline() : void {
+    this.isActive = false;
+    Meteor.call('TutorLocations.setActive', false);
+  }
+
   publishLocation() : void {
-    Providers.collection.insert({
-      latitude: this.lat + (-1 * (Math.random() > 0.5 ? 1 : 0 )) * (Math.random() / 1000),
-      longitude: this.lng  + (-1 * (Math.random() > 0.5 ? 1 : 0 )) * (Math.random() / 1000),
-      createdAt: new Date()
-    });
-    alert("PUBLISHED");
+    Meteor.call('TutorLocations.publishLocation', this.lat, this.lng);
   }
 }

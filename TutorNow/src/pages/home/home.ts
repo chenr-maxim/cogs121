@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { Providers } from 'api/collections/providers';
-import { Provider } from 'api/models';
+import { TutorLocations } from 'api/collections/tutor-locations';
+import { TutorLocation } from 'api/models';
 import * as moment from 'moment';
 import {ClientRequestPage} from '../client-request/client-request';
 
@@ -15,8 +15,8 @@ export class HomePage implements OnInit {
   ucsdLong: number = -117.23674;
   lat: number = 51.678418;
   lng: number = 7.809007;
-  providers: Observable<Provider[]>;
-  currentProvider = {};
+  tutorLocations: Observable<TutorLocation[]>;
+  currentTutor : TutorLocation;
 
 
   constructor(public navCtrl: NavController) {
@@ -24,21 +24,22 @@ export class HomePage implements OnInit {
   }  
 
   ngOnInit() {
-    this.providers = Providers.find(
+    this.tutorLocations = TutorLocations.find(
       {
-        //createdAt: { $gte : moment().subtract(5, "minutes").toDate() }
-      }).zone();
-
+        'isActive': true,
+        //lastUpdated': { $gte : moment().subtract(30, "seconds").toDate() }
+      }
+    ).zone();
   }
 
-  markerClick(provider){
-    this.currentProvider = provider;
-    console.log(provider);
+  markerClick(tutor){
+    this.currentTutor = tutor;
+    console.log(tutor);
   }
 
-  view(provider){
+  view(tutor){
     this.navCtrl.push(ClientRequestPage, {
-      param: provider
+      param: tutor
     })
 
   }

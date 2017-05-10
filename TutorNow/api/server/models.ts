@@ -8,3 +8,12 @@ export interface Provider extends Model {
     longitude?: number;
     picture?: string;
 }
+
+export interface TutorLocation
+{
+    latitude?: number;
+    longitude?: number;
+    lastUpdated: Date;
+    isActive?: boolean;
+    userId: string
+}
