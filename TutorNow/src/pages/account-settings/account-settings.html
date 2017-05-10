@@ -11,13 +11,13 @@
 <ion-content>
 
   <ion-item>
-    <ion-input placeholder="Name"></ion-input>
+    <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-input placeholder="Phone"></ion-input>
+    <ion-input placeholder="Phone" [(ngModel)]="phonenumber" ></ion-input>
   </ion-item>
   <ion-item>
-    <ion-input placeholder="Email"></ion-input>
+    <ion-input placeholder="Email" [(ngModel)]="email" ></ion-input>
   </ion-item>
 
 <ion-item>
@@ -25,6 +25,7 @@
   <ion-toggle color="secondary" checked="true"></ion-toggle>
 </ion-item>
 
+  <button ion-button round outline (click)="saveAccountInfo()">Save</button>
   <button ion-button round outline>Sign Out</button>
 
 </ion-content>

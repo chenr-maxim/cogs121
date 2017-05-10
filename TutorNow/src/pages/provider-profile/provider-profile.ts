@@ -27,11 +27,10 @@ export class ProviderProfilePage {
   private classesText = '';
   classes = []
   options = [
-    {
-    name:'Tutoring', value:'1', checked:false},
-    {name:'Lessons', value:'2', checked:false},
-    {name:'Tour Guide', value:'3', checked:false},
-    {name:'Miscellaneous', value:'4', checked:false}
+    {type:'Tutoring', value:'1', checked:false},
+    {type:'Lessons', value:'2', checked:false},
+    {type:'Tour Guide', value:'3', checked:false},
+    {type:'Miscellaneous', value:'4', checked:false}
   ]
 
 
@@ -44,7 +43,7 @@ export class ProviderProfilePage {
 
 
   onInputKeypress({keyCode}: KeyboardEvent): void {
-    if (keyCode === 13) {
+    if (keyCode === 13 ) {
       this.classes.push(this.classesText);
     }
   }
