@@ -16,6 +16,10 @@ export class ClientRequestPage {
 
   }
 
+  call(){
+    window.open("tel:" + this.user.profile.phonenumber);
+  }
+
   request(){
     this.navCtrl.setRoot(InProgressPage, {}, {
       animate: true

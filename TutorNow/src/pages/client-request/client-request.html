@@ -26,6 +26,11 @@
     </button>
   </ion-item>
 
+  <ion-item (click)="call()">
+    <ion-icon name="call" item-left></ion-icon>
+    {{ user.profile.phonenumber }}
+  </ion-item>
+
   <ion-list-header>
     Reviews
   </ion-list-header>
