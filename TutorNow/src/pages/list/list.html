@@ -8,12 +8,25 @@
 </ion-header>
 
 <ion-content>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16" [styles]="customStyle" [streetViewControl]="false">
+      <agm-marker [latitude]="lat" [longitude]="lng" iconUrl="https://i.stack.imgur.com/orZ4x.png">
+        <agm-info-window>Current Location</agm-info-window>
+      </agm-marker>
+  </agm-map>
+
+  <!--<ion-list>-->
+    <!--<ion-item class="selected-classes">-->
+      <!--<ion-label stacked>Classes</ion-label>-->
+      <!--<ion-input (keypress)="onInputKeypress($event)" placeholder="Please list the classes you can tutor." [(ngModel)]="classesText"></ion-input>-->
+    <!--</ion-item>-->
+    <!--<ion-list-header>-->
+      <!--Selected Classes-->
+    <!--</ion-list-header>-->
+    <!--<ion-item *ngFor="let class of classes">-->
+      <!--{{class}}-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
   <button ion-button secondary (click)="goOnline()" [disabled]="isActive">Start</button>
   <button ion-button secondary (click)="goOffline()" [disabled]="!isActive">Stop</button>
-
-  {{ lat }}, {{ lng }}
-
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="18">
-      <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
 </ion-content>

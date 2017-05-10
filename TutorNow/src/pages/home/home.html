@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16" [styles]="customStyle" [streetViewControl]="false">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14" [styles]="customStyle" [streetViewControl]="false">
     <div *ngFor="let tutor of tutorLocations | async">
       <agm-marker [latitude]="tutor.latitude" [longitude]="tutor.longitude" (markerClick)="markerClick(tutor)">
-        <agm-info-window>{{ tutor.position }} 
+        <agm-info-window>
         <button ion-button round outline class="view-button" (click)="view(tutor)">View</button> 
         </agm-info-window>
       </agm-marker>
