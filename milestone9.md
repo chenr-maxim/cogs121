@@ -10,10 +10,11 @@
 ![Screenshot3](images/InProgress.png)
 #### A Map of Your Current Location with infoWindow content
 ![Screenshot4](images/CurrentLocation.png)
+![Screenshot4](images/CurrentLocationUpdated.png)
 #### Account Settings Page
 ![Screenshot5](images/AccountSettings.png)
 #### Provider Profile Page
-![Screenshot6](images/ProvideProfile.png)
+![Screenshot6](images/ProviderProfile.png)
 
 #### Roles:
 - Oscar Pan: Improved home page (map) to center on current location and created and styled list page. Also worked on the workflow of the app.
