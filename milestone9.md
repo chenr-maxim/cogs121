@@ -10,10 +10,13 @@
 ![Screenshot3](images/InProgress.png)
 #### A Map of Your Current Location with infoWindow content
 ![Screenshot4](images/CurrentLocation.png)
-
+#### Account Settings Page
+![Screenshot5](images/AccountSettings.png)
+#### Provider Profile Page
+![Screenshot6](images/ProvideProfile.png)
 
 #### Roles:
-- Oscar Pan: Improved home page (map) to center on current location and created and styled list page.
+- Oscar Pan: Improved home page (map) to center on current location and created and styled list page. Also worked on the workflow of the app.
 - David Zech: Improved real time Geo Tracking so locations are now linked to User ID and can be turned on/off.
 - Max Chen:  Created in progress and provider profile pages and updated account settings, 
 - Joey Wong: Created account settings and client request pages, and updated client summary page.
