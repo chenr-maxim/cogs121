@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
 
   view(tutor){
     this.navCtrl.push(ClientRequestPage, {
-      param: tutor
+      user: tutor
     })
 
   }

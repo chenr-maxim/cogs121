@@ -1,3 +1,13 @@
+import { Meteor } from 'meteor/meteor';
+
+export interface User extends Meteor.User {
+    profile?: Profile;
+}
+
+export interface Profile {
+    name?: string;
+}
+
 export interface Model {
     createdAt: Date;
 }

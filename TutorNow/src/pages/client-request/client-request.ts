@@ -7,11 +7,11 @@ import { Platform, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'client-request.html'
 })
 export class ClientRequestPage {
-  parameter1='';
+  private user;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform){
-  	this.parameter1 = navParams.get('param');
+  	this.user = navParams.get('user');
 
   }
 

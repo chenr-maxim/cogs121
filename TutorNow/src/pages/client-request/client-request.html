@@ -9,11 +9,11 @@
 
 <ion-content>
   <ion-item>
-    Kyle
+    {{ user.profile.name }}
   </ion-item>
 
   <ion-item class="times">
-    <h2>Tutors in: CSE 12, CSE 21, CSE 30, CSE 100</h2>
+    <h2>Tutors in: {{ user.profile.classes }}</h2>
   </ion-item>
 
   <ion-item class="stars">
@@ -26,17 +26,18 @@
     </button>
   </ion-item>
 
-  <ion-item class="tutor-review">
-    <ion-label stacked>Reviews</ion-label>
-    <ion-card>
-  <ion-card-header>
-    Client Name
-  </ion-card-header>
-  <ion-card-content>
-    Kyle was a great tutor and was very patient when I was not understanding the concept.
-  </ion-card-content>
-</ion-card>
-  </ion-item>
+  <ion-list-header>
+    Reviews
+  </ion-list-header>
+
+  <ion-card>
+    <ion-card-header>
+      Client Name <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      Kyle was a great tutor and was very patient when I was not understanding the concept.
+    </ion-card-content>
+  </ion-card>
 
   <button ion-button round outline>Request</button>
 

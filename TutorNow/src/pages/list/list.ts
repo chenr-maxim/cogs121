@@ -22,7 +22,7 @@ export class ListPage implements OnInit, OnDestroy {
 
   ngOnInit() : void {
     this.intervalObs = this.reloadLocation().flatMapTo(
-      Observable.interval(500).timeInterval()).subscribe(() => {this.reloadLocation();});
+      Observable.interval(5000).timeInterval()).subscribe(() => {this.reloadLocation();});
   }
 
   ngOnDestroy() {
