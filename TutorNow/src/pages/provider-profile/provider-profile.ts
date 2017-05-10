@@ -36,9 +36,11 @@ export class ProviderProfilePage {
 
   ngOnInit(){
       Meteor.user();
-      this.radius = Meteor.user().profile.radius;
-      this.classesText = Meteor.user().profile.classes;
-      this.options = Meteor.user().profile.options;
+      if( (Meteor.user().profile.radius || Meteor.user().profile.classes || Meteor.user().profile.options) != null ) {
+        this.radius = Meteor.user().profile.radius;
+        this.classesText = Meteor.user().profile.classes;
+        this.options = Meteor.user().profile.options;
+      }
   }
 
 
