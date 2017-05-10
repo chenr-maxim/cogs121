@@ -7,13 +7,12 @@ import { Platform, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'client-request.html'
 })
 export class ClientRequestPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private platform:Platform,
-    // private shareService: ShareService
-    )
-  {
+  parameter1='';
 
-  // parameter1='';
-  //  this.parameter1 = navParams.get('param');
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private platform:Platform){
+  this.parameter1 = navParams.get('param');
   }
 }
+
+
