@@ -24,13 +24,25 @@ export class LoginPage {
   }
 
   login(): void {
-    this.loginService.login(this.username, this.password).catch((e) => {
+    this.loginService.login(this.username, this.password).then(() => {
+      this.navCtrl.setRoot(HomePage, {}, {
+        animate: true
+      });
+    }).catch((e) => {
       this.handleError(e);
     });
 
-    this.navCtrl.setRoot(HomePage, {}, {
-      animate: true
+  }
+
+  register(): void {
+    this.loginService.register(this.username, this.password).then(() => {
+      this.navCtrl.setRoot(HomePage, {}, {
+        animate: true
+      });
+    }).catch((e) => {
+      this.handleError(e);
     });
+
   }
 
   handleError(e: Error): void {
