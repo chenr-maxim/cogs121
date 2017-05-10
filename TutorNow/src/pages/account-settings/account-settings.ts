@@ -40,5 +40,12 @@ export class AccountSettingsPage {
   		alert.present();
   }
 
+  logout() {
+  	Meteor.logout(function(err) {
+  	// callback
+  	Session.set("ses",false);
+	});
+  }
+
 
 }
