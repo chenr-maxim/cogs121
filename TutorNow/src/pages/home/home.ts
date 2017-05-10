@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { TutorLocations } from 'api/collections/tutor-locations';
 import { TutorLocation } from 'api/models';
+import { Geolocation } from '@ionic-native/geolocation';
 import * as moment from 'moment';
 import {ClientRequestPage} from '../client-request/client-request';
 
@@ -11,16 +12,13 @@ import {ClientRequestPage} from '../client-request/client-request';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  ucsdLat: number = 32.8812;
-  ucsdLong: number = -117.23674;
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 32.8812;
+  lng: number = -117.23674;
   tutorLocations: Observable<TutorLocation[]>;
   currentTutor : TutorLocation;
 
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, private geolocation: Geolocation) {
   }  
 
   ngOnInit() {
@@ -30,6 +28,12 @@ export class HomePage implements OnInit {
         //lastUpdated': { $gte : moment().subtract(30, "seconds").toDate() }
       }
     ).zone();
+
+    this.geolocation.getCurrentPosition().then((position) => {
+      console.log(position);
+      this.lat = position.coords.latitude;
+      this.lng = position.coords.longitude;
+    });
   }
 
   markerClick(tutor){
