@@ -17,14 +17,14 @@ export class AccountSettingsPage {
 
   private name = '';
   private phonenumber = '';
-  private email = '';
+  private username = '';
 
 
   ngOnInit(){
       Meteor.user();
       this.name = Meteor.user().profile.name;
       this.phonenumber = Meteor.user().profile.phonenumber;
-      this.email = Meteor.user().username;
+      this.username = Meteor.user().username;
   }
 
   saveAccountInfo() {

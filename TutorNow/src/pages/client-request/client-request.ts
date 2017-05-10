@@ -11,8 +11,13 @@ export class ClientRequestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform){
-  this.parameter1 = navParams.get('param');
+  	this.parameter1 = navParams.get('param');
+
   }
+
+  cancelToRoot() {
+  		this.navCtrl.popToRoot();
+  	}
 }
 
 

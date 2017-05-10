@@ -50,8 +50,6 @@ export class ProviderProfilePage {
     }
   }
 
-
-
   presentConfirm() {
   let alert = this.alertCtrl.create({
     title: 'Confirmation',
