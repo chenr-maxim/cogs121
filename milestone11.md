@@ -5,9 +5,17 @@
 - UI consistency
 - Workflow for application
 
-#### Title
-![Screenshot1](images/.png)
-![Screenshot2](images/.png)
+#### Choose services
+![Screenshot1](images/UpdatedCS.png)
+
+#### Client Summary
+![Screenshot2](images/UpdatedClient.png)
+
+#### Provider Summary
+![Screenshot3](images/UpdatedProvider.png)
+
+#### Provider Profile
+![Screenshot3](images/UpdatedProfile.png)
 
 #### Roles:
 - Oscar Pan: Worked on the workflow of the application and UI for all pages
