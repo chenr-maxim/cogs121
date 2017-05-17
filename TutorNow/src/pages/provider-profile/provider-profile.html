@@ -8,40 +8,29 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
 
-	<div class="form-group">
-    	<label for="options">Select which service to offer:</label>
-    	<div *ngFor="let option of options">
-      <br>
-        	<label class="form-group">
-            	<input class="check-box-padding" type="checkbox"
-                	   name="options"
-                   	value="{{option.value}}"
-                   	[(ngModel)]="option.checked"/>{{option.name}}
-        	</label>
-    	</div>
-	</div>
+    <ion-item-divider>
+      Select which service to offer
+    </ion-item-divider>
+    <ion-item *ngFor="let option of options">
+      <ion-label>{{option.name}}</ion-label>
+      <ion-checkbox [(ngModel)]="option.checked"></ion-checkbox>
+    </ion-item>
 
-  <div>
+
     <ion-item>
       <ion-label stacked>Provider Radius</ion-label>
       <ion-input placeholder="Input Mile Radius." [(ngModel)]="radius"> </ion-input>
     </ion-item>
-  </div>
 
-  <div>
-	 <ion-item class="selected-classes">
+    <ion-item class="selected-classes">
       <ion-label stacked>Classes</ion-label>
       <ion-input (keypress)="onInputKeypress($event)" placeholder="Please list the classes you can tutor." [(ngModel)]="classesText"></ion-input>
     </ion-item>
-  </div>
 
-	<!--<div>-->
-		<!--<ul *ngFor="let class of classes">-->
-		<!--<span> {{class}}</span>-->
-		<!--</ul>-->
-	<!--</div>-->
+    <button ion-button round (click)="presentConfirm()">OFFER</button>
 
-	<button ion-button round (click)="presentConfirm()">OFFER</button>
+  </ion-list>
 
 </ion-content>
