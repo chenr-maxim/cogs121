@@ -17,6 +17,9 @@
 #### Provider Profile
 ![Screenshot3](images/UpdatedProfile.png)
 
+#### Account Settings
+![Screenshot3](images/UpdatedAS.png)
+
 #### Roles:
 - Oscar Pan: Worked on the workflow of the application and UI for all pages
 - David Zech: Worked on making the application work on the native iPhone
