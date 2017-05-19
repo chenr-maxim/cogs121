@@ -17,6 +17,16 @@ export class AccountSettingsPage {
   private name = '';
   private phonenumber = '';
   private username = '';
+  private radius = '';
+  private classesText = '';
+  provider;
+  classes = []
+  options = [
+    {name:'Tutoring', value:'1', checked:false},
+    {name:'Lessons', value:'2', checked:false},
+    {name:'Tour Guide', value:'3', checked:false},
+    {name:'Miscellaneous', value:'4', checked:false}
+  ]
 
 
   ngOnInit(){
@@ -24,6 +34,7 @@ export class AccountSettingsPage {
       this.name = Meteor.user().profile.name;
       this.phonenumber = Meteor.user().profile.phonenumber;
       this.username = Meteor.user().username;
+      this.provider = Meteor.user().profile.provider;
       if( (Meteor.user().profile.radius || Meteor.user().profile.classes || Meteor.user().profile.options) != null ) {
         this.radius = Meteor.user().profile.radius;
         this.classesText = Meteor.user().profile.classes;
@@ -38,12 +49,26 @@ export class AccountSettingsPage {
     	buttons: [{
     		text:'Dismiss',
     		handler: () => {
-    			Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": this.name}});
-		        Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.phonenumber": this.phonenumber}});
+    			Meteor.users.update({_id: Meteor.userId()}, {
+            $set:
+              {
+                "profile.name": this.name,
+                "profile.phonenumber": this.phonenumber,
+                "profile.radius": this.radius,
+                "profile.options": this.options,
+                "profile.classes": this.classesText,
+                "profile.provider": this.provider
+
+              }
+          });
     		}
     	}]
   	});
   		alert.present();
+  }
+
+  providerOnClick() {
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.provider": this.provider}});
   }
 
   logout() {
@@ -52,65 +77,5 @@ export class AccountSettingsPage {
               animate: true
             });
   }
-
-  private radius = '';
-  private classesText = '';
-  classes = []
-  options = [
-    {name:'Tutoring', value:'1', checked:false},
-    {name:'Lessons', value:'2', checked:false},
-    {name:'Tour Guide', value:'3', checked:false},
-    {name:'Miscellaneous', value:'4', checked:false}
-  ]
-
-  onInputKeypress({keyCode}: KeyboardEvent): void {
-    if (keyCode === 13 ) {
-      //this.classes.push(this.classesText);
-    }
-  }
-
-  presentConfirm() {
-  let alert = this.alertCtrl.create({
-    title: 'Confirmation',
-    message: 'Are you sure these are the correct information?',
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Yes',
-        handler: () => {
-          Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.radius": this.radius}});
-          Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.options": this.options}});
-          Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.classes": this.classesText}});
-          this.classesText = '';
-          this.presentAlert();
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-presentAlert() {
-  let alert = this.alertCtrl.create({
-    title: 'You are discoverable!',
-    subTitle: 'Feel free to navigate off the app. A push notification will be sent to you when you are requested',
-    buttons: [{
-      text: 'Dismiss',
-      handler: () => {
-        this.navCtrl.setRoot(HomePage, {}, {
-              animate: true
-            });
-      }
-    }]
-  });
-  alert.present();
-}
-
 
 }

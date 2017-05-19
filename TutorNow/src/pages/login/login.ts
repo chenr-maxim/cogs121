@@ -40,6 +40,7 @@ export class LoginPage {
       Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile": {
         "name":'',
         "radius":0,
+        "provider":false,
         "classes":[],
         "options":[
           {name:'Tutoring', value:'1', checked:false},
