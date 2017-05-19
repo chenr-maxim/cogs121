@@ -9,6 +9,15 @@ other.
 </ion-header>
 
 <ion-content>
+ 
+  <ion-icon name="images" on-tap="openGallery()"></ion-icon>
+  <div class="gallery-button" text-center>    
+    <ion-icon name="images"></ion-icon>
+    <p>Select Photo</p>  
+  </div> 
+
+  <!-- <button ion-button round outline (click)="openGallery()">Select Photo</button>
+ -->
 
   <ion-item>
     <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>

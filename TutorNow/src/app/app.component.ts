@@ -12,6 +12,7 @@ import { ProviderSummaryPage } from '../pages/provider-summary/provider-summary'
 import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { InProgressPage } from '../pages/in-progress/in-progress';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 
 @Component({
@@ -38,6 +39,8 @@ export class MyApp {
       { title: 'Client Summary', component: ClientSummaryPage },
       { title: 'Account Settings', component: AccountSettingsPage },
       { title: 'Tutoring In Progress', component: InProgressPage },
+      { title: 'Gallery', component: GalleryPage},
+
 
     ];
 

@@ -7,6 +7,25 @@ page-account-settings {
 label.form-group{
     padding-left: 0.5cm;
 }
+.gallery-button {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute !important;
+    margin:0 auto;
+    width:100%;
+}
+
+ion-icon[name="images"] {	
+    border: #FFFFFF 2px solid;    
+    border-radius: 50%;
+    background-color: #2155AA;    
+    font-size: 35px;
+	padding: 15px;	
+}
+ 
+p {
+	font-size: 20px;
+}
 
 }
 
