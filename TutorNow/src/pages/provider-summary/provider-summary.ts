@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-
+import { ChooseServicePage } from '../choose-service/choose-service';
 
 @Component({
   selector: 'page-provider-summary',
@@ -20,7 +20,7 @@ export class ProviderSummaryPage {
 		    buttons: [{
 		      text: 'Return to Home page',
 		      handler: () => {
-		        this.navCtrl.setRoot(HomePage, {}, {
+		        this.navCtrl.setRoot(ChooseServicePage, {}, {
 		              animate: true
 		            });
 		      }

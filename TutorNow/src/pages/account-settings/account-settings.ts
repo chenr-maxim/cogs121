@@ -7,7 +7,6 @@ import { HomePage } from '../home/home';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { GalleryPage } from '../gallery/gallery';
 
-
 @Component({
   selector: 'page-account-settings',
   templateUrl: 'account-settings.html'
@@ -29,10 +28,10 @@ private openGallery (): void {
     quality: 75
   }
 
-  ImagePicker.getPictures(options).then(
+  /*ImagePicker.getPictures(options).then(
     file_uris => this.navCtrl.push(GalleryPage, {images: file_uris}),
     err => console.log('uh oh')
-  );
+  );*/
 }
 
   ngOnInit(){
