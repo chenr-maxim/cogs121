@@ -4,8 +4,6 @@ import {AlertController} from 'ionic-angular';
 import { Meteor } from 'meteor/meteor';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
-import { ImagePicker } from '@ionic-native/image-picker';
-
 
 @Component({
   selector: 'page-account-settings',
@@ -13,7 +11,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 })
 export class AccountSettingsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private platform:Platform,private alertCtrl: AlertController, private imagePicker: ImagePicker) {
+    private platform:Platform,private alertCtrl: AlertController,) {
   }
 
   private name = '';

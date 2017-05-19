@@ -25,7 +25,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.rootPage = Meteor.user() ? HomePage : LoginPage;
+    this.rootPage = Meteor.user() ? ChooseServicePage : LoginPage;
 
     this.initializeApp();
 
