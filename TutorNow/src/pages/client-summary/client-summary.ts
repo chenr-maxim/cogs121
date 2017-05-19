@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, NgModule } from '@angular/core';
 import {Icon} from 'ionic-angular/components/icon/icon';
 import { Platform, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-
+import { ChooseServicePage } from '../choose-service/choose-service';
 import {Ionic2RatingModule} from 'ionic2-rating';
 
 @Component({
@@ -25,7 +25,7 @@ export class ClientSummaryPage {
 		    buttons: [{
 		      text: 'Return to Home page',
 		      handler: () => {
-		        this.navCtrl.setRoot(HomePage, {}, {
+		        this.navCtrl.setRoot(ChooseServicePage, {}, {
 		              animate: true
 		            });
 		      }
