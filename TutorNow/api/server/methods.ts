@@ -11,7 +11,7 @@ Meteor.methods({
                     isActive: true,
                     latitude: latitude,
                     longitude: longitude,
-                    lastUpdated: Date()
+                    lastUpdated: new Date()
                 }
             });
     },
