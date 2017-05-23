@@ -12,22 +12,24 @@
   <ion-grid>
     <ion-row>
       <ion-col col-6>
-        <ion-card (click)="chooseTutoring()">
+        <ion-card (click)="chooseTutoring()" tappable>
           <img src="assets/tutoring.png"/>
         </ion-card>
       </ion-col>
       <ion-col col-6>
-        <ion-card (click)="chooseLessons()">
+        <a (click)="chooseLessons()">
+        <ion-card  tappable >
           <img src="assets/lessons.png"/>
         </ion-card>
+        </a>
       </ion-col>
       <ion-col col-6>
-        <ion-card (click)="chooseTours()">
+        <ion-card (click)="chooseTours()" tappable>
           <img src="assets/tours.png"/>
         </ion-card>
       </ion-col>
       <ion-col col-6>
-        <ion-card (click)="chooseOther()">
+        <ion-card (click)="chooseOther()" tappable>
           <img src="assets/other.png"/>
         </ion-card>
       </ion-col>

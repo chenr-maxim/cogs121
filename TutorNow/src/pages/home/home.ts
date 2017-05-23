@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
     this.tutorLocations = TutorLocations.find(
       {
         'isActive': true,
-        //lastUpdated': { $gte : moment().subtract(30, "seconds").toDate() }
+        'lastUpdated': { $gte : moment().subtract(1, "minute").toDate() }
       }
     ).zone();
 
