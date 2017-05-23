@@ -14,6 +14,7 @@ import {ClientRequestPage} from '../client-request/client-request';
 export class HomePage implements OnInit {
   lat: number = 32.8812;
   lng: number = -117.23674;
+  myLocationFound: boolean = false;
   tutorLocations: Observable<TutorLocation[]>;
   currentTutor : TutorLocation;
 
@@ -33,6 +34,7 @@ export class HomePage implements OnInit {
       console.log(position);
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
+      this.myLocationFound = true;
     });
   }
 
