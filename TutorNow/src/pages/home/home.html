@@ -14,6 +14,7 @@
     <div *ngFor="let tutor of tutorLocations | async">
       <agm-marker [latitude]="tutor.latitude" [longitude]="tutor.longitude" (markerClick)="markerClick(tutor)">
         <agm-info-window>
+          <div *ngIf="tutor.user.profile.picture" class="profile-picture" [ngStyle]="{'background-image': 'url(' + tutor.user.profile.picture + ')'}"></div>
           <h6>Name: {{ tutor.user.profile.name }}</h6>
           Rating: <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
           <br>

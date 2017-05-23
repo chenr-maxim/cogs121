@@ -14,3 +14,13 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 .gmnoprint div {
     background:none !important;
 }
+
+.profile-picture {
+    border:gray 2px solid;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; 
+}
