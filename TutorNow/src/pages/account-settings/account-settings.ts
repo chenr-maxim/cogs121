@@ -5,7 +5,9 @@ import { Meteor } from 'meteor/meteor';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { GalleryPage } from '../gallery/gallery';
+import { ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-account-settings',
@@ -13,53 +15,119 @@ import { GalleryPage } from '../gallery/gallery';
 })
 export class AccountSettingsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private platform:Platform,private alertCtrl: AlertController) {
+    private platform:Platform, private alertCtrl: AlertController, private actionSheetCtrl: ActionSheetController,
+    private imagePicker:ImagePicker, private camera:Camera) {
   }
 
   private name = '';
   private phonenumber = '';
   private username = '';
+  private provider:boolean = false;
+  private profilePicture:string = "https://i.imgur.com/8DXVFbX.png";
+
+private openCamera() : void {
+  const options: CameraOptions = {
+    quality: 1,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
+  }
+  this.camera.getPicture(options).then((imageData) => {
+    // got picture
+    this.profilePicture = "data:image/png;base64," + imageData;
+    this.saveProfilePicture();
+  }, (err) => {
+    //error
+  })
+}
+
+openActionSheet() : void {
+  let actionSheet = this.actionSheetCtrl.create({
+    title: "Choose a Profile Picture",
+    buttons: [
+      {
+        text: 'Camera', 
+        handler: () => {
+          this.openCamera();
+        }
+      },
+      {
+        text: 'Image Gallery',
+        handler: () => {
+          this.openGallery();
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel',
+      }
+    ]
+  });
+  actionSheet.present();
+}
 
 private openGallery (): void {
-  let options = {
+  const options = {
     maximumImagesCount: 1,
-    width: 500,
-    height: 500,
-    quality: 75
+    width: 80,
+    height: 80,
+    quality: 1,
+    outputType: 1 // base64
   }
 
-  /*ImagePicker.getPictures(options).then(
-    file_uris => this.navCtrl.push(GalleryPage, {images: file_uris}),
-    err => console.log('uh oh')
-  );*/
+  this.imagePicker.getPictures(options).then(
+    (results) => {
+      if(results.length > 0) {
+          let imageData = results[0];
+          this.profilePicture = "data:image/png;base64," + imageData;
+          this.saveProfilePicture()
+      }
+    },
+    (err) => console.log('uh oh')
+  );
 }
 
   ngOnInit(){
-      Meteor.user();
-      this.name = Meteor.user().profile.name;
-      this.phonenumber = Meteor.user().profile.phonenumber;
+    let profile = Meteor.user().profile;
+    if(profile) {
+      this.name = profile.name;
+      this.phonenumber = profile.phonenumber
       this.username = Meteor.user().username;
-      if( (Meteor.user().profile.radius || Meteor.user().profile.classes || Meteor.user().profile.options) != null ) {
-        this.radius = Meteor.user().profile.radius;
-        this.classesText = Meteor.user().profile.classes;
-        this.options = Meteor.user().profile.options;
+      this.radius = profile.radius;
+      this.classesText = profile.classes;
+      this.options = profile.options;
+      this.provider = profile.provider;
+      if(profile.picture) {
+        this.profilePicture = profile.picture;
       }
+    }
   }
 
-
+  saveProfilePicture() : void {
+    Meteor.users.update({_id: Meteor.userId()}, {
+      $set: {
+        "profile.picture" : this.profilePicture
+      }
+    });
+  }
   saveAccountInfo() {
   	let alert = this.alertCtrl.create({
     	title: 'Saved!',
     	subTitle: 'Your account settings are saved.',
     	buttons: [{
-    		text:'Dismiss',
-    		handler: () => {
-    			Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.name": this.name}});
-		        Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.phonenumber": this.phonenumber}});
-    		}
-    	}]
+    		text:'Dismiss'
+    		}]
   	});
-  		alert.present();
+    Meteor.users.update({_id: Meteor.userId()}, {
+            $set: {
+              "profile.name": this.name,
+              "profile.provider": this.provider,
+              "profile.phonenumber": this.phonenumber
+            }
+    }, () => {
+      alert.present();
+    });
   }
 
   logout() {

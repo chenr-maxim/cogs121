@@ -15,7 +15,8 @@ import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { ClientRequestPage } from '../pages/client-request/client-request';
 import { InProgressPage } from '../pages/in-progress/in-progress';
-
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera, CameraOptions } from '@ionic-native/camera'
 
 
 import { Geolocation } from '@ionic-native/geolocation';
@@ -61,6 +62,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     Geolocation,
+    ImagePicker,
+    Camera,
     LoginService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

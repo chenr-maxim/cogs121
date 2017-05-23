@@ -7,6 +7,7 @@ page-account-settings {
 label.form-group{
     padding-left: 0.5cm;
 }
+
 .gallery-button {
     top: 50%;
     transform: translateY(-50%);
@@ -21,6 +22,17 @@ ion-icon[name="images"] {
     background-color: #2155AA;    
     font-size: 35px;
 	padding: 15px;	
+}
+
+#profilePicker {
+    margin: 10px;
+    border:gray 2px solid;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; 
 }
  
 p {

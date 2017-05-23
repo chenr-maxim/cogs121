@@ -10,11 +10,9 @@ other.
 
 <ion-content>
  
-  <ion-icon name="images" on-tap="openGallery()"></ion-icon>
-  <div class="gallery-button" text-center>    
-    <ion-icon name="images"></ion-icon>
-    <p>Select Photo</p>  
-  </div> 
+ <button id="profilePicker" (click)="openActionSheet()"
+  [ngStyle]="{'background-image': 'url(' + profilePicture + ')'}">
+ </button>
 
   <!-- <button ion-button round outline (click)="openGallery()">Select Photo</button>
  -->
@@ -31,7 +29,7 @@ other.
 
   <ion-item>
     <ion-label>Provider Profile</ion-label>
-    <ion-toggle  color="primary" (ngModelChange)="providerOnClick()" [(ngModel)]="provider"> </ion-toggle>
+    <ion-toggle color="primary" [(ngModel)]="provider"> </ion-toggle>
   </ion-item>
 
   <div [hidden]="!provider">
