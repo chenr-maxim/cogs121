@@ -1,5 +1,16 @@
 page-list {
   .sebm-google-map-container {
-    height: 40%;
+    height: 100%;
   }
+
+  #start {
+    position: relative;
+    top: -80px;
+  }
+
+  #stop {
+    position: relative;
+    top: -80px;
+  }
+
 }

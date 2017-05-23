@@ -26,7 +26,12 @@
       <!--{{class}}-->
     <!--</ion-item>-->
   <!--</ion-list>-->
-
-  <button ion-button secondary round (click)="goOnline()" [disabled]="isActive">Start</button>
-  <button ion-button secondary round (click)="goOffline()" [disabled]="!isActive">Stop</button>
+  <div class="row" text-center>
+    <div class="col">
+     <button id="start" ion-button full secondary (click)="goOnline()" [disabled]="isActive">Start</button>
+    </div>
+    <div class="col">
+      <button id="stop" ion-button full secondary (click)="goOffline()" [disabled]="!isActive">Stop</button>
+    </div>
+  </div>
 </ion-content>
