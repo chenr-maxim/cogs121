@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Request, Acknowledge } from 'api/models';
 import { Requests } from 'api/collections/requests';
 import { Acknowledges } from 'api/collections/acknowledges';
+import { InProgressPage } from '../in-progress/in-progress';
 
 @Component({
   selector: 'page-list',
@@ -58,6 +59,7 @@ export class ListPage implements OnInit, OnDestroy {
     });
 
     let alertCtrl = this.alertCtrl;
+    let navCtrl = this.navCtrl;
     let observeHandle = cursor.observe({
       added(req:Request) {
         if(req.requesteeId === Meteor.userId()) {
@@ -69,7 +71,7 @@ export class ListPage implements OnInit, OnDestroy {
               {
                 text: "Accept",
                 handler: () => {
-                  Acknowledges.insert({
+                  let acknowledgeId = Acknowledges.insert({
                     requesterId: req.requesterId,
                     handshake: req.handshake,
                     accepted: true
@@ -81,6 +83,10 @@ export class ListPage implements OnInit, OnDestroy {
 
                   navTransition.then(() => {
                     // push new view and join session
+                    navCtrl.setRoot(InProgressPage, {
+                      animate: true,
+                      acknowledgeId: acknowledgeId,
+                    })
                   })
                   return false;
                 }
