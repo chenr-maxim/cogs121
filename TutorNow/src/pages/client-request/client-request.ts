@@ -53,22 +53,23 @@ export class ClientRequestPage {
         requesterId: Meteor.userId(),
         handshake: handshake
       });
-    
+
+    let navCtrl = this.navCtrl;
     const handle = cursor.observe({
       added(ack:Acknowledge) {
-        loading.dismiss();
+        let navTransition = loading.dismiss();
         console.log(JSON.stringify(ack));
         if(ack.requesterId === Meteor.userId() && ack.handshake === handshake && ack.accepted) {
           handle.stop();
           //requesting = false;
-          //this.navCtrl.setRoot(InProgressPage, {
-            //tutorLocation: this.tutorLocation,
-            //tutorUser: this.tutoruser,
-            //sessionId: this.handeshake
-          //}, {
-           // animate: true
-          //});
-          alert("Accepted");
+          navTransition.then(() => {
+            navCtrl.setRoot(InProgressPage, {
+              acknowledgeId: ack._id,
+            }, {
+              animate: true
+            });
+          });
+          //alert("Accepted");
         } else {
           // rejected :(
           alert("Rejected");

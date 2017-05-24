@@ -84,8 +84,9 @@ export class ListPage implements OnInit, OnDestroy {
                   navTransition.then(() => {
                     // push new view and join session
                     navCtrl.setRoot(InProgressPage, {
-                      animate: true,
                       acknowledgeId: acknowledgeId,
+                    }, {
+                      animate: true
                     })
                   })
                   return false;
