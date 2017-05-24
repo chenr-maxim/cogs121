@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Platform, NavController, NavParams } from 'ionic-angular';
 import { ClientSummaryPage } from '../client-summary/client-summary';
+import { ProviderSummaryPage } from '../provider-summary/provider-summary';
 import { Acknowledge } from 'api/models';
 import { Acknowledges } from 'api/collections/acknowledges';
 import * as moment from 'moment';
@@ -17,18 +18,26 @@ export class InProgressPage {
     private platform:Platform,) {
     this.acknowledgeId = navParams.get('acknowledgeId');
 
+    console.log("Ack", this.acknowledgeId);
+
   }
 
   private start:string;
   ngOnInit() {
-    this.start = moment().format("H:m A");
+    this.start = moment().format("H:mm A");
 
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
+
+    console.log("Ack", this.acknowledge);
   }
 
   finishTutoring() {
-  	this.navCtrl.push(ClientSummaryPage);
+    if(this.acknowledge.requesterId === Meteor.userId()){
+      this.navCtrl.push(ProviderSummaryPage);
+    }
+    else{
+      this.navCtrl.push(ClientSummaryPage);
+    }
   }
-
 
 }

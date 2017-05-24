@@ -71,11 +71,12 @@ export class ListPage implements OnInit, OnDestroy {
               {
                 text: "Accept",
                 handler: () => {
-                  let acknowledgeId = Acknowledges.insert({
+                  const acknowledgeId = Acknowledges.collection.insert({
                     requesterId: req.requesterId,
                     handshake: req.handshake,
                     accepted: true
                   });
+                  console.log("created", acknowledgeId);
                   observeHandle.stop();
                   Requests.remove(req._id);
 
