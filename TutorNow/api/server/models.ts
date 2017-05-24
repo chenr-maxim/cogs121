@@ -27,3 +27,26 @@ export interface TutorLocation
     isActive?: boolean;
     userId: string
 }
+
+export interface Request 
+{
+    requesterId:string,
+    requesteeId: string,
+    handshake: string
+}
+
+export interface Acknowledge
+{
+    requesterId: string
+    handshake:string,
+    accepted:boolean
+}
+
+export interface Session 
+{
+    requesterId:string,
+    requesteeId:string,
+    sessionId:string,
+    active:boolean,
+    startTime: Date,
+}

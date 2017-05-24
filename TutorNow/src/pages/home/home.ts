@@ -45,7 +45,8 @@ export class HomePage implements OnInit {
 
   view(tutor){
     this.navCtrl.push(ClientRequestPage, {
-      user: tutor
+      tutorLocation: tutor,
+      tutorUser: tutor.user
     })
 
   }

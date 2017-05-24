@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Platform, NavController, NavParams } from 'ionic-angular';
+import { Platform, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Providers } from 'api/collections/providers';
 import { Geolocation } from '@ionic-native/geolocation';
 import { TutorLocations } from 'api/collections/tutor-locations';
 import { Observable, Subscription } from 'rxjs';
+import { Request, Acknowledge } from 'api/models';
+import { Requests } from 'api/collections/requests';
+import { Acknowledges } from 'api/collections/acknowledges';
 
 @Component({
   selector: 'page-list',
@@ -15,10 +18,12 @@ export class ListPage implements OnInit, OnDestroy {
   position:Position;
   lat:number;
   lng:number;
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public navParams: NavParams, 
     private platform:Platform, private geolocation: Geolocation) {
 
   }
+
+  private observeHandle;
 
   ngOnInit() : void {
     this.intervalObs = this.reloadLocation().flatMapTo(
@@ -28,6 +33,9 @@ export class ListPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.intervalObs) {
       this.intervalObs.unsubscribe();
+    }
+    if(this.observeHandle) {
+      this.observeHandle.stop();
     }
   }
 
@@ -44,13 +52,71 @@ export class ListPage implements OnInit, OnDestroy {
     ));
   }
 
+  startObservingRequests() {
+    const cursor = Requests.find({
+      requesteeId: Meteor.userId()
+    });
+
+    this.observeHandle = cursor.observeChanges({
+      added(id, req:Request) {
+        if(req.requesteeId === Meteor.userId()) {
+          let requester:Meteor.User = Meteor.users.findOne(req.requesterId);
+          let alert =  this.alertCtrl.create({
+            title: 'Incoming request',
+            subTitle: 'Request from ' + requester.profile.name,
+            buttons: [
+              {
+                text: "Accept",
+                handler: () => {
+                  Acknowledges.insert({
+                    requesterId: req.requesterId,
+                    handshake: req.handshake,
+                    accepted: true
+                  });
+                  this.observeHandle.stop();
+                  this.observeHandle = null;
+                  Requests.remove(id);
+
+                  let navTransition = alert.dismiss();
+
+                  navTransition.then(() => {
+                    // push new view and join session
+                  })
+                  return false;
+                }
+              },
+              {
+                text: 'Reject',
+                role: 'cancel',
+                handler: () => {
+                  Acknowledges.insert({
+                    requesterId: req.requesterId,
+                    handshake: req.handshake,
+                    accepted: false
+                  });
+                  Requests.remove(id);
+                }
+              },
+            ]
+          });
+          alert.present();
+        }
+      }
+    });
+  }
+
   goOnline() : void {
     this.isActive = true;
+    this.startObservingRequests();
   }
 
   goOffline() : void {
     this.isActive = false;
     Meteor.call('TutorLocations.setActive', false);
+    if(this.observeHandle) {
+      this.observeHandle.stop();
+      this.observeHandle = false;
+    }
   }
 
   publishLocation() : void {

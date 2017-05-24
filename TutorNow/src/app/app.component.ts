@@ -32,14 +32,14 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Be a Tutor', component: ListPage },
+      //{ title: 'Home', component: HomePage },
       { title: 'Choose Services', component: ChooseServicePage },
-      { title: 'Provider Summary', component: ProviderSummaryPage },
-      { title: 'Client Summary', component: ClientSummaryPage },
+      { title: 'Be a Tutor', component: ListPage },
+      //{ title: 'Provider Summary', component: ProviderSummaryPage },
+      //{ title: 'Client Summary', component: ClientSummaryPage },
       { title: 'Account Settings', component: AccountSettingsPage },
-      { title: 'Tutoring In Progress', component: InProgressPage },
-      { title: 'Gallery', component: GalleryPage},
+      //{ title: 'Tutoring In Progress', component: InProgressPage },
+      //{ title: 'Gallery', component: GalleryPage},
 
 
     ];
