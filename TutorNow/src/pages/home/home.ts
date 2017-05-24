@@ -44,11 +44,11 @@ export class HomePage implements OnInit {
   }
 
   view(tutor){
+    console.log(tutor.user);
     this.navCtrl.push(ClientRequestPage, {
       tutorLocation: tutor,
       tutorUser: tutor.user
     })
-
   }
 
 

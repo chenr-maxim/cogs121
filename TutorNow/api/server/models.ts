@@ -9,7 +9,8 @@ export interface Profile {
 }
 
 export interface Model {
-    createdAt: Date;
+    _id?:string;
+    createdAt?: Date;
 }
 
 export interface Provider extends Model {
@@ -19,7 +20,7 @@ export interface Provider extends Model {
     picture?: string;
 }
 
-export interface TutorLocation
+export interface TutorLocation extends Model
 {
     latitude?: number;
     longitude?: number;
@@ -28,21 +29,21 @@ export interface TutorLocation
     userId: string
 }
 
-export interface Request 
+export interface Request extends Model
 {
     requesterId:string,
     requesteeId: string,
     handshake: string
 }
 
-export interface Acknowledge
+export interface Acknowledge extends Model
 {
     requesterId: string
     handshake:string,
     accepted:boolean
 }
 
-export interface Session 
+export interface Session extends Model
 {
     requesterId:string,
     requesteeId:string,

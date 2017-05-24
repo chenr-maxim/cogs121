@@ -57,11 +57,12 @@ export class ListPage implements OnInit, OnDestroy {
       requesteeId: Meteor.userId()
     });
 
-    this.observeHandle = cursor.observeChanges({
-      added(id, req:Request) {
+    let alertCtrl = this.alertCtrl;
+    let observeHandle = cursor.observe({
+      added(req:Request) {
         if(req.requesteeId === Meteor.userId()) {
           let requester:Meteor.User = Meteor.users.findOne(req.requesterId);
-          let alert =  this.alertCtrl.create({
+          let alert =  alertCtrl.create({
             title: 'Incoming request',
             subTitle: 'Request from ' + requester.profile.name,
             buttons: [
@@ -73,9 +74,8 @@ export class ListPage implements OnInit, OnDestroy {
                     handshake: req.handshake,
                     accepted: true
                   });
-                  this.observeHandle.stop();
-                  this.observeHandle = null;
-                  Requests.remove(id);
+                  observeHandle.stop();
+                  Requests.remove(req._id);
 
                   let navTransition = alert.dismiss();
 
@@ -94,12 +94,13 @@ export class ListPage implements OnInit, OnDestroy {
                     handshake: req.handshake,
                     accepted: false
                   });
-                  Requests.remove(id);
+                  Requests.remove(req._id);
                 }
               },
             ]
           });
           alert.present();
+          this.observeHandle = observeHandle;
         }
       }
     });

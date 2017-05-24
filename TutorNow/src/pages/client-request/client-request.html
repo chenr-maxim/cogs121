@@ -9,11 +9,11 @@
 
 <ion-content>
   <ion-item>
-    {{ user.profile.name }}
+    {{ tutorUser.profile.name }}
   </ion-item>
 
   <ion-item class="times">
-    <h2>Tutors in: {{ user.profile.classes }}</h2>
+    <h2>Tutors in: {{ tutorUser.profile.classes }}</h2>
   </ion-item>
 
   <ion-item class="stars">
@@ -28,7 +28,7 @@
 
   <ion-item (click)="call()">
     <ion-icon name="call" item-left></ion-icon>
-    {{ user.profile.phonenumber }}
+    {{ tutorUser.profile.phonenumber }}
   </ion-item>
 
   <ion-list-header>

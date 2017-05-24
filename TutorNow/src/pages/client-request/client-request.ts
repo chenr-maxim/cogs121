@@ -15,7 +15,6 @@ export class ClientRequestPage {
   private tutorLocation: TutorLocation;
   private tutorUser: Meteor.User;
   private requesting:boolean = false;
-  private handshake:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform, private loadingCtrl:LoadingController){
@@ -40,38 +39,42 @@ export class ClientRequestPage {
 
     loading.present();
 
-    this.handshake = this.generateHandshake();
+    let handshake = this.generateHandshake();
+    console.log(`Requesting ${this.tutorUser._id} with handshake ${handshake}`);
     Requests.insert({
       requesterId: Meteor.userId(),
       requesteeId: this.tutorUser._id,
-      handshake: this.handshake
+      handshake: handshake
     });
     this.requesting = true;
 
     const cursor = Acknowledges.find(
       {
         requesterId: Meteor.userId(),
-        handshake: this.handshake
+        handshake: handshake
       });
-
-    const handle = cursor.observeChanges({
-      added(id, ack:Acknowledge) {
+    
+    const handle = cursor.observe({
+      added(ack:Acknowledge) {
         loading.dismiss();
-        if(ack.requesterId === Meteor.userId() && ack.handshake === this.handshake && ack.accepted) {
+        console.log(JSON.stringify(ack));
+        if(ack.requesterId === Meteor.userId() && ack.handshake === handshake && ack.accepted) {
           handle.stop();
-          this.requesting = false;
-          this.navCtrl.setRoot(InProgressPage, {
-            tutorLocation: this.tutorLocation,
-            tutorUser: this.tutoruser,
-            sessionId: this.handeshake
-          }, {
-            animate: true
-          });
+          //requesting = false;
+          //this.navCtrl.setRoot(InProgressPage, {
+            //tutorLocation: this.tutorLocation,
+            //tutorUser: this.tutoruser,
+            //sessionId: this.handeshake
+          //}, {
+           // animate: true
+          //});
+          alert("Accepted");
         } else {
           // rejected :(
-          Acknowledges.remove(id);
+          alert("Rejected");
+          Acknowledges.remove(ack._id);
           handle.stop();
-          this.requesting = false;
+          //this.requesting = false;
         }
       }
     });
