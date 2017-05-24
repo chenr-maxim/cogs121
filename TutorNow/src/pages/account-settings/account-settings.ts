@@ -4,8 +4,8 @@ import {AlertController} from 'ionic-angular';
 import { Meteor } from 'meteor/meteor';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { GalleryPage } from '../gallery/gallery';
+import { MeteorObservable } from 'meteor-rxjs';
+import { PictureService } from '../../services/picture';
 
 @Component({
   selector: 'page-account-settings',
@@ -13,29 +13,31 @@ import { GalleryPage } from '../gallery/gallery';
 })
 export class AccountSettingsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private platform:Platform,private alertCtrl: AlertController) {
+    private platform:Platform, private alertCtrl: AlertController, private pictureService: PictureService) {
   }
 
   private name = '';
   private phonenumber = '';
   private username = '';
 
-private openGallery (): void {
-  let options = {
-    maximumImagesCount: 1,
-    width: 500,
-    height: 500,
-    quality: 75
+
+  picture: string;
+  sendPicture(): void {
+    this.pictureService.select().then((blob) => {
+      console.log(blob);
+
+      this.pictureService.upload(blob).then((picture) => {
+        console.log(picture);
+
+        this.picture = picture.url;
+        Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.pictureId": picture._id}});
+      }).catch((e) => {
+        this.handleError(e);
+      });
+    });
   }
 
-  /*ImagePicker.getPictures(options).then(
-    file_uris => this.navCtrl.push(GalleryPage, {images: file_uris}),
-    err => console.log('uh oh')
-  );*/
-}
-
   ngOnInit(){
-      Meteor.user();
       this.name = Meteor.user().profile.name;
       this.phonenumber = Meteor.user().profile.phonenumber;
       this.username = Meteor.user().username;
@@ -127,6 +129,18 @@ presentAlert() {
   });
   alert.present();
 }
+
+  handleError(e: Error): void {
+    console.error(e);
+
+    const alert = this.alertCtrl.create({
+      title: 'Oops!',
+      message: e.message,
+      buttons: ['OK']
+    });
+
+    alert.present();
+  }
 
 
 }

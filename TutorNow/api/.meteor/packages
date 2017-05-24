@@ -24,3 +24,5 @@ accounts-base
 npm-bcrypt
 accounts-password
 dburles:collection-helpers
+jalik:ufs
+jalik:ufs-gridfs

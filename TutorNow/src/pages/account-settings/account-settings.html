@@ -9,15 +9,27 @@ other.
 </ion-header>
 
 <ion-content>
- 
-  <ion-icon name="images" on-tap="openGallery()"></ion-icon>
-  <div class="gallery-button" text-center>    
+
+  <ion-icon name="images" on-tap="sendPicture()"></ion-icon>
+  <div class="gallery-button" text-center>
     <ion-icon name="images"></ion-icon>
-    <p>Select Photo</p>  
-  </div> 
+    <p>Select Photo</p>
+  </div>
+
+
+  <button ion-item class="attachment attachment-gallery" (click)="sendPicture()">
+    <ion-icon name="images" class="attachment-icon"></ion-icon>
+    <div class="attachment-name">Gallery</div>
+  </button>
+
+  <img *ngIf="picture" [src]="picture">
 
   <!-- <button ion-button round outline (click)="openGallery()">Select Photo</button>
  -->
+
+  <ion-item>
+    {{ picture }}
+  </ion-item>
 
   <ion-item>
     <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
