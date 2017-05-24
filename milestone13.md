@@ -2,7 +2,6 @@
 
 - Implement tutor filtering
 - Use profile picture as markers on the map
-- Implement messaging
 - Photo Upload for Profile
 - Linking PayPal & Venmo
 - Workflow
@@ -10,22 +9,16 @@
 #### Map markers
 ![Screenshot1](images/mapMarkers.png)
 
-#### Tutor filtering
-![Screenshot2](images/tutorFilter.png)
-
 #### Provider Profile
-![Screenshot3](images/UpdatedProfilePage.png)
-
-#### Messaging
-![Screenshot4](images/Messaging.png)
+![Screenshot2](images/UpdatedProfilePage.png)
 
 #### Account Settings
-![Screenshot5](images/UpdatedSettings.png)
+![Screenshot3](images/UpdatedSettings.png)
 
 ### Updated Workflow
-![Screenshot6](images/UpdatedWorkflow.png)
-![Screenshot7](images/Requesting.png)
-![Screenshot8](images/ReceivingRequest.png)
+![Screenshot4](images/UpdatedWorkflow.png)
+![Screenshot5](images/Requesting.png)
+![Screenshot6](images/ReceivingRequest.png)
 
 #### Roles:
 - Oscar Pan: Fixed animation problems and workflow and implementation of photo upload
