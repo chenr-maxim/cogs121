@@ -43,8 +43,8 @@
 
   <!-- need to integrate venmo and paypal -->
 
-  <button ion-button round outline>Venmo</button>
-  <button ion-button round outline>Paypal</button>
+  <button ion-button round outline (click)="window.open('https://venmo.com/account/sign-in', '_system', 'location=yes'); return false;">Venmo</button>
+  <button ion-button round outline (click)="window.open('https://www.paypal.com/signin?country.x=US&locale.x=en_US', '_system', 'location=yes'); return false;">Paypal</button>
 
   <button ion-button round (click)="returnToHome()">Finish</button>
 
