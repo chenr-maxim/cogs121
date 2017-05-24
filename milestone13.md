@@ -16,10 +16,13 @@
 ![Screenshot3](images/UpdatedProfilePage.png)
 
 #### Messaging
-![Screenshot3](images/Messaging.png)
+![Screenshot4](images/Messaging.png)
 
 #### Account Settings
-![Screenshot3](images/UpdatedSettings.png)
+![Screenshot5](images/UpdatedSettings.png)
+
+### Updated Workflow
+![Screenshot6](images/UpdatedWorkflow.png)
 
 #### Roles:
 - Oscar Pan: Fixed animation problems and workflow
