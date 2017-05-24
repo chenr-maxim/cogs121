@@ -3,8 +3,9 @@
 - Implement tutor filtering
 - Use profile picture as markers on the map
 - Implement messaging
-- Photo Upload
+- Photo Upload for Profile
 - Linking PayPal & Venmo
+- Workflow
 
 #### Map markers
 ![Screenshot1](images/mapMarkers.png)
@@ -25,7 +26,7 @@
 ![Screenshot6](images/UpdatedWorkflow.png)
 
 #### Roles:
-- Oscar Pan: Fixed animation problems and workflow
+- Oscar Pan: Fixed animation problems and workflow and implementation of photo upload
 - David Zech: Worked on map markers, messaging, and tutor filtering
 - Max Chen: Worked on account setttings toggle
-- Joey Wong: Worked on linking venmo and paypal
+- Joey Wong: Worked on linking venmo and paypal and photo upload/choosing photo
