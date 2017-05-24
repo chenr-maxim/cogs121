@@ -24,6 +24,8 @@
 
 ### Updated Workflow
 ![Screenshot6](images/UpdatedWorkflow.png)
+![Screenshot7](images/Requesting.png)
+![Screenshot8](images/ReceivingRequest.png)
 
 #### Roles:
 - Oscar Pan: Fixed animation problems and workflow and implementation of photo upload
