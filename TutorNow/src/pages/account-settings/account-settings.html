@@ -9,7 +9,7 @@ other.
 </ion-header>
 
 <ion-content>
- 
+
  <button id="profilePicker" (click)="openActionSheet()"
   [ngStyle]="{'background-image': 'url(' + profilePicture + ')'}">
  </button>
@@ -29,7 +29,7 @@ other.
 
   <ion-item>
     <ion-label>Provider Profile</ion-label>
-    <ion-toggle color="primary" [(ngModel)]="provider"> </ion-toggle>
+    <ion-toggle color="primary" (click)="saveProvider()" [(ngModel)]="provider"> </ion-toggle>
   </ion-item>
 
   <div [hidden]="!provider">

@@ -47,7 +47,7 @@ openActionSheet() : void {
     title: "Choose a Profile Picture",
     buttons: [
       {
-        text: 'Camera', 
+        text: 'Camera',
         handler: () => {
           this.openCamera();
         }
@@ -151,6 +151,10 @@ private openGallery (): void {
     if (keyCode === 13 ) {
       //this.classes.push(this.classesText);
     }
+  }
+
+  saveProvider() {
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.provider": this.provider}});
   }
 
   presentConfirm() {
