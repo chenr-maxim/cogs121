@@ -71,6 +71,19 @@ export class ListPage implements OnInit, OnDestroy {
             subTitle: 'Request from ' + requester.profile.name,
             buttons: [
               {
+                text: 'Reject',
+                role: 'cancel',
+                handler: () => {
+                  Acknowledges.insert({
+                    requesterId: req.requesterId,
+                    requesteeId: req.requesteeId,
+                    handshake: req.handshake,
+                    accepted: false
+                  });
+                  Requests.remove(req._id);
+                }
+              },
+              {
                 text: "Accept",
                 handler: () => {
                   const acknowledgeId = Acknowledges.collection.insert({
@@ -94,19 +107,6 @@ export class ListPage implements OnInit, OnDestroy {
                     })
                   })
                   return false;
-                }
-              },
-              {
-                text: 'Reject',
-                role: 'cancel',
-                handler: () => {
-                  Acknowledges.insert({
-                    requesterId: req.requesterId,
-                    requesteeId: req.requesteeId,
-                    handshake: req.handshake,
-                    accepted: false
-                  });
-                  Requests.remove(req._id);
                 }
               },
             ]
