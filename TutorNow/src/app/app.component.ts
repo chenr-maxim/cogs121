@@ -13,6 +13,7 @@ import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { InProgressPage } from '../pages/in-progress/in-progress';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { RoutingPage } from '../pages/routing/routing';
 
 
 @Component({
@@ -26,20 +27,21 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.rootPage = Meteor.user() ? ChooseServicePage : LoginPage;
+    this.rootPage = Meteor.user() ? HomePage : LoginPage;
 
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      //{ title: 'Home', component: HomePage },
-      { title: 'Choose Services', component: ChooseServicePage },
+      { title: 'Find a Tutor', component: HomePage },
+      //{ title: 'Choose Services', component: ChooseServicePage },
       { title: 'Be a Tutor', component: ListPage },
       //{ title: 'Provider Summary', component: ProviderSummaryPage },
       //{ title: 'Client Summary', component: ClientSummaryPage },
       { title: 'Account Settings', component: AccountSettingsPage },
       //{ title: 'Tutoring In Progress', component: InProgressPage },
       //{ title: 'Gallery', component: GalleryPage},
+      //{ title: 'Routing', component: RoutingPage },
 
 
     ];

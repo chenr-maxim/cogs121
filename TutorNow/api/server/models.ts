@@ -6,6 +6,8 @@ export interface User extends Meteor.User {
 
 export interface Profile {
     name?: string;
+    lat?: number;
+    lng?: number;
 }
 
 export interface Model {
@@ -31,14 +33,17 @@ export interface TutorLocation extends Model
 
 export interface Request extends Model
 {
-    requesterId:string,
+    requesterId: string,
     requesteeId: string,
     handshake: string
 }
 
 export interface Acknowledge extends Model
 {
-    requesterId: string
+    requesterId: string,
+    requesteeId: string,
+    requester?: User,
+    requestee?: User,
     handshake:string,
     accepted:boolean
 }
