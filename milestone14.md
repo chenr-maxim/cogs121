@@ -10,10 +10,13 @@
 ![Screenshot1](images/clientSum.png)
 
 #### Map Route
-![Screenshot2](images/Map Route.png)
+![Screenshot2](images/map.png)
 
-#### Request History
-![Screenshot3](images/RequestHistory.png)
+#### Call
+![Screenshot3](images/call.png)
+
+#### Request
+![Screenshot3](images/request.png)
 
 #### Roles:
 - Oscar Pan: Worked on rejecting and accepting requests.
