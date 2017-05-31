@@ -1,12 +1,24 @@
 page-in-progress {
 
-	.img-circle {
+	.img-circle1 {
 		position: relative;
   		overflow: hidden;
 		border-radius: 50%;
     	text-align: center;
     	width: 25%;
+    	float: left;
 	}
+
+	.img-circle2 {
+		position: relative;
+  		overflow: hidden;
+		border-radius: 50%;
+    	text-align: center;
+    	width: 25%;
+    	float: right;
+	}
+
+
 
 
 }
