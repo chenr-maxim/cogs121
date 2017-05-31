@@ -1,6 +1,7 @@
 ### Changes since last time
 
 - Accepting & Rejecting Requests
+- Map Route
 - Start & End Time
 - Request history
 - Styling
@@ -8,8 +9,8 @@
 #### Client Summary
 ![Screenshot1](images/clientSum.png)
 
-#### Provider Summary
-![Screenshot2](images/ProviderSum.png)
+#### Map Route
+![Screenshot2](images/Map Route.png)
 
 #### Request History
 ![Screenshot3](images/RequestHistory.png)
