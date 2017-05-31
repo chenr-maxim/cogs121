@@ -19,7 +19,7 @@
 
   <ion-item class="icons">
     <h2>Rate Your Client</h2>
-    <rating [(ngModel)]="rate"
+    <rating [(ngModel)]="rating"
         readOnly="false"
         max="5"
         emptyStarIconName="star-outline"
@@ -32,7 +32,7 @@
 
   <ion-item class="student-review">
     <ion-label stacked>Write a Review</ion-label>
-    <ion-input placeholder="Write a Review"></ion-input>
+    <ion-input placeholder="Write a Review" [(ngModel)]="account_review"></ion-input>
   </ion-item>
 
   <ion-item class="total-cost">

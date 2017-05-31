@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Alert, AlertController, NavController } from 'ionic-angular';
 import { LoginService } from '../../services/login';
 import { HomePage } from '../home/home';
+import { ChooseServicePage } from '../choose-service/choose-service';
 
 @Component({
   selector: 'login',
@@ -42,13 +43,15 @@ export class LoginPage {
         "radius":0,
         "provider":false,
         "classes":[],
+        "rating":[],
+        "account_review":[],
         "options":[
           {name:'Tutoring', value:'1', checked:false},
           {name:'Lessons', value:'2', checked:false},
           {name:'Tour Guide', value:'3', checked:false},
           {name:'Miscellaneous', value:'4', checked:false}],
       }}});
-      this.navCtrl.setRoot(HomePage, {}, {
+      this.navCtrl.setRoot(ChooseServicePage, {}, {
         animate: true
       });
     }).catch((e) => {

@@ -13,21 +13,30 @@ export class ProviderSummaryPage {
 
   }
 
-      returnToHome() {
-    	  	let alert = this.alertCtrl.create({
-		    title: 'Review Submitted!',
-		    subTitle: 'You have reviewed + provider',
-		    buttons: [{
-		      text: 'Return to Home page',
-		      handler: () => {
-		        this.navCtrl.setRoot(ChooseServicePage, {}, {
-		              animate: true
-		            });
-		      }
-		    }]
-		  });
-		  alert.present();
-	}
+  private account_review = '';
+  private rating = '';
+
+  saveSummary() {
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.rating": this.rating}});
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.account_review": this.account_review}});
+  }
+
+  returnToHome() {
+	  	let alert = this.alertCtrl.create({
+	    title: 'Review Submitted!',
+	    subTitle: 'You have reviewed + provider',
+	    buttons: [{
+	      text: 'Return to Home page',
+	      handler: () => {
+	      	this.saveSummary();
+	        this.navCtrl.setRoot(ChooseServicePage, {}, {
+	              animate: true
+	            });
+	      }
+	    }]
+	  });
+	  alert.present();
+  }
 
 
 }

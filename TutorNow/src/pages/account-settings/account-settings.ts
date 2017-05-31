@@ -160,7 +160,7 @@ private openGallery (): void {
   presentConfirm() {
   let alert = this.alertCtrl.create({
     title: 'Confirmation',
-    message: 'Are you sure these are the correct information?',
+    message: 'Are you sure this the correct information?',
     buttons: [
       {
         text: 'Cancel',

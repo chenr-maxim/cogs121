@@ -16,7 +16,13 @@ export class ClientSummaryPage {
 
   }
 
-  	private rate = 0;
+  private account_review = '';
+  private rating = '';
+
+  saveSummary() {
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.rating": this.rating}});
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.account_review": this.account_review}});
+  }
 
     returnToHome() {
     	  	let alert = this.alertCtrl.create({
