@@ -14,6 +14,9 @@ export class InProgressPage {
   private acknowledge: Acknowledge;
   private acknowledgeId: string;
 
+  private pic1: string = '';
+  private pic2: string = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private platform:Platform,) {
     this.acknowledgeId = navParams.get('acknowledgeId');
@@ -30,6 +33,9 @@ export class InProgressPage {
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
 
     Acknowledges.update(this.acknowledgeId, { $set: { startTime: new Date() } });
+
+    this.pic1 = this.acknowledge.requestee.profile.picture;
+    this.pic2 = this.acknowledge.requester.profile.picture;
 
     console.log("Ack", this.acknowledge);
   }
