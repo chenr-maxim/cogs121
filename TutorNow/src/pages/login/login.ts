@@ -45,6 +45,7 @@ export class LoginPage {
         "classes":[],
         "rating":[],
         "account_review":[],
+        "start_time": '',
         "options":[
           {name:'Tutoring', value:'1', checked:false},
           {name:'Lessons', value:'2', checked:false},

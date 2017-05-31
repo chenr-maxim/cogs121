@@ -25,6 +25,7 @@ export class InProgressPage {
   private start:string;
   ngOnInit() {
     this.start = moment().format("H:mm A");
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.start_time": this.start}});
 
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
 

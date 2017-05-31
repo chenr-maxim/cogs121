@@ -4,6 +4,9 @@ import { Platform, NavController, NavParams, AlertController } from 'ionic-angul
 import { HomePage } from '../home/home';
 import { ChooseServicePage } from '../choose-service/choose-service';
 import {Ionic2RatingModule} from 'ionic2-rating';
+import { Acknowledge } from 'api/models';
+import { Acknowledges } from 'api/collections/acknowledges';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-client-summary',
@@ -18,6 +21,12 @@ export class ClientSummaryPage {
 
   private account_review = '';
   private rating = '';
+  private start:string;
+  private end:string;
+
+  ngOnInit() {
+    this.end = moment().format("H:mm A");
+  }
 
   saveSummary() {
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.rating": this.rating}});
