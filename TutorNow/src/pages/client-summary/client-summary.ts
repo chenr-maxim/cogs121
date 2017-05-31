@@ -58,6 +58,7 @@ export class ClientSummaryPage {
       buttons: [{
         text: 'Return to Home page',
         handler: () => {
+          this.saveSummary();
           this.navCtrl.setRoot(HomePage, {}, {
             animate: true
           });
