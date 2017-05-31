@@ -9,6 +9,7 @@ export interface Profile {
     lat?: number;
     lng?: number;
     phonenumber?: string;
+    picture?: string;
 }
 
 export interface Model {
