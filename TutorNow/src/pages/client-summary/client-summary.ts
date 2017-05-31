@@ -14,9 +14,12 @@ import * as moment from 'moment';
 })
 
 export class ClientSummaryPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private platform:Platform,private alertCtrl: AlertController) {
+  private acknowledge: Acknowledge;
+  private acknowledgeId: string;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private platform:Platform,private alertCtrl: AlertController) {
+    this.acknowledgeId = navParams.get('acknowledgeId');
   }
 
   private account_review = '';
@@ -24,8 +27,19 @@ export class ClientSummaryPage {
   private start:string;
   private end:string;
 
+  private client;
+
   ngOnInit() {
     this.end = moment().format("H:mm A");
+
+
+    this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
+
+    Acknowledges.update(this.acknowledgeId, { $set: { endTime: new Date() } });
+
+    this.client = this.acknowledge.requestee;
+
+    console.log("Ack", this.acknowledge);
   }
 
   saveSummary() {
@@ -33,21 +47,21 @@ export class ClientSummaryPage {
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.account_review": this.account_review}});
   }
 
-    returnToHome() {
-    	  	let alert = this.alertCtrl.create({
-		    title: 'Review Submitted!',
-		    subTitle: 'You have reviewed + provider',
-		    buttons: [{
-		      text: 'Return to Home page',
-		      handler: () => {
-		        this.navCtrl.setRoot(ChooseServicePage, {}, {
-		              animate: true
-		            });
-		      }
-		    }]
-		  });
-		  alert.present();
-	}
+  returnToHome() {
+    let alert = this.alertCtrl.create({
+      title: 'Review Submitted!',
+      subTitle: 'You have reviewed + provider',
+      buttons: [{
+        text: 'Return to Home page',
+        handler: () => {
+          this.navCtrl.setRoot(HomePage, {}, {
+            animate: true
+          });
+        }
+      }]
+    });
+    alert.present();
+  }
 
 }
 

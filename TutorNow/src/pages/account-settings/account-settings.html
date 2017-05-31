@@ -33,17 +33,22 @@ other.
   </ion-item>
 
   <div [hidden]="!provider">
-    <ion-item-divider>
-      Select which service to offer
-    </ion-item-divider>
-    <ion-item *ngFor="let option of options">
-      <ion-label>{{option.name}}</ion-label>
-      <ion-checkbox [(ngModel)]="option.checked"></ion-checkbox>
-    </ion-item>
+    <!--<ion-item-divider>-->
+      <!--Select which service to offer-->
+    <!--</ion-item-divider>-->
+    <!--<ion-item *ngFor="let option of options">-->
+      <!--<ion-label>{{option.name}}</ion-label>-->
+      <!--<ion-checkbox [(ngModel)]="option.checked"></ion-checkbox>-->
+    <!--</ion-item>-->
+
+    <!--<ion-item>-->
+      <!--<ion-label stacked>Provider Radius</ion-label>-->
+      <!--<ion-input placeholder="Input Mile Radius." [(ngModel)]="radius"> </ion-input>-->
+    <!--</ion-item>-->
 
     <ion-item>
-      <ion-label stacked>Provider Radius</ion-label>
-      <ion-input placeholder="Input Mile Radius." [(ngModel)]="radius"> </ion-input>
+      <ion-label stacked>Venmo Username</ion-label>
+      <ion-input placeholder="Venmo Username" [(ngModel)]="venmo"> </ion-input>
     </ion-item>
 
     <ion-item class="selected-classes">

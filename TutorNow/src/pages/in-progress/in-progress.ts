@@ -29,15 +29,21 @@ export class InProgressPage {
 
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
 
+    Acknowledges.update(this.acknowledgeId, { $set: { startTime: new Date() } });
+
     console.log("Ack", this.acknowledge);
   }
 
   finishTutoring() {
     if(this.acknowledge.requesterId === Meteor.userId()){
-      this.navCtrl.push(ProviderSummaryPage);
+      this.navCtrl.push(ProviderSummaryPage, {
+        acknowledgeId: this.acknowledgeId,
+      });
     }
     else{
-      this.navCtrl.push(ClientSummaryPage);
+      this.navCtrl.push(ClientSummaryPage, {
+        acknowledgeId: this.acknowledgeId,
+      });
     }
   }
 

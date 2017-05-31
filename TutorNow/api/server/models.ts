@@ -46,7 +46,9 @@ export interface Acknowledge extends Model
     requester?: User,
     requestee?: User,
     handshake:string,
-    accepted:boolean
+    accepted:boolean,
+    startTime?: Date,
+    endTime?: Date,
 }
 
 export interface Session extends Model

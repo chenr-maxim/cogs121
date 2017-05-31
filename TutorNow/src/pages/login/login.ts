@@ -42,6 +42,7 @@ export class LoginPage {
         "name":'',
         "radius":0,
         "provider":false,
+        "venmo":'',
         "classes":[],
         "rating":[],
         "account_review":[],

@@ -11,8 +11,13 @@ import * as moment from 'moment';
   templateUrl: 'provider-summary.html'
 })
 export class ProviderSummaryPage {
+  private acknowledge: Acknowledge;
+  private acknowledgeId: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private platform:Platform, private alertCtrl: AlertController) {
+              private platform:Platform, private alertCtrl: AlertController) {
+
+    this.acknowledgeId = navParams.get('acknowledgeId');
 
   }
 
@@ -23,6 +28,12 @@ export class ProviderSummaryPage {
 
   ngOnInit() {
     this.end = moment().format("H:mm A");
+
+    this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
+
+    Acknowledges.update(this.acknowledgeId, { $set: { endTime: new Date() } });
+
+    console.log("Ack", this.acknowledge);
   }
 
 
@@ -32,20 +43,20 @@ export class ProviderSummaryPage {
   }
 
   returnToHome() {
-	  	let alert = this.alertCtrl.create({
-	    title: 'Review Submitted!',
-	    subTitle: 'You have reviewed + provider',
-	    buttons: [{
-	      text: 'Return to Home page',
-	      handler: () => {
-	      	this.saveSummary();
-	        this.navCtrl.setRoot(ChooseServicePage, {}, {
-	              animate: true
-	            });
-	      }
-	    }]
-	  });
-	  alert.present();
+    let alert = this.alertCtrl.create({
+      title: 'Review Submitted!',
+      subTitle: 'You have reviewed + provider',
+      buttons: [{
+        text: 'Return to Home page',
+        handler: () => {
+          this.saveSummary();
+          this.navCtrl.setRoot(HomePage, {}, {
+            animate: true
+          });
+        }
+      }]
+    });
+    alert.present();
   }
 
 
