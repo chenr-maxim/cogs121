@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-item>
-    Oscar
+    {{ clientname }}
   </ion-item>
 
   <ion-item class="times">
@@ -35,10 +35,10 @@
     <ion-input placeholder="Write a Review" [(ngModel)]="account_review"></ion-input>
   </ion-item>
 
-  <ion-item class="total-cost">
-    <h2>Total Cost</h2>
-    <p>3 hours &times; &#36;12 &#61; &#36; 36 </p>
-  </ion-item>
+  <!--<ion-item class="total-cost">-->
+    <!--<h2>Total Cost</h2>-->
+    <!--<p>3 hours &times; &#36;12 &#61; &#36; 36 </p>-->
+  <!--</ion-item>-->
 
   <button ion-button round (click)="returnToHome()">Finish</button>
 

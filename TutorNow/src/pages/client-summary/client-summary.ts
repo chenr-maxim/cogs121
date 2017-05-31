@@ -28,16 +28,20 @@ export class ClientSummaryPage {
   private end:string;
 
   private client;
+  private clientname = '';
 
   ngOnInit() {
-    this.end = moment().format("H:mm A");
+    this.end = moment().format("h:mm A");
 
 
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
 
     Acknowledges.update(this.acknowledgeId, { $set: { endTime: new Date() } });
 
-    this.client = this.acknowledge.requestee;
+    this.client = this.acknowledge.requester;
+    this.start = moment(this.acknowledge.startTime).format("h:mm A");
+    this.clientname = this.client.profile.name;
+
 
     console.log("Ack", this.acknowledge);
   }

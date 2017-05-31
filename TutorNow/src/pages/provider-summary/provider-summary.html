@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-item>
-    Kyle
+    {{ providername }}
   </ion-item>
 
     <ion-item class="times">
@@ -35,16 +35,16 @@
     <ion-input placeholder="Write a Review" [(ngModel)]="account_review"></ion-input>
   </ion-item>
 
-  <ion-item class="total-cost">
-    <h2>Total Cost</h2>
-    <p>3 hours &times; &#36;12 &#61; &#36; 36 </p>
-  </ion-item>
+  <!--<ion-item class="total-cost">-->
+    <!--<h2>Total Cost</h2>-->
+    <!--<p>3 hours &times; &#36;12 &#61; &#36; 36 </p>-->
+  <!--</ion-item>-->
 
 
   <!-- need to integrate venmo and paypal -->
 
-  <button ion-button round outline (click)="window.open('https://venmo.com/account/sign-in', '_system', 'location=yes');">Venmo</button>
-  <button ion-button round outline (click)="window.open('https://www.paypal.com/signin?country.x=US&locale.x=en_US', '_system', 'location=yes');">Paypal</button>
+  <button ion-button round outline (click)="venmo()">Venmo</button>
+  <!--<button ion-button round outline (click)="window.open('https://www.paypal.com/signin?country.x=US&locale.x=en_US', '_system', 'location=yes');">Paypal</button>-->
 
   <button ion-button round (click)="returnToHome()">Finish</button>
 

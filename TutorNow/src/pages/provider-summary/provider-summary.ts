@@ -26,14 +26,25 @@ export class ProviderSummaryPage {
   private start:string;
   private end:string;
 
+  private provider;
+  private providername = '';
+
   ngOnInit() {
-    this.end = moment().format("H:mm A");
+    this.end = moment().format("h:mm A");
 
     this.acknowledge = Acknowledges.findOne(this.acknowledgeId);
 
     Acknowledges.update(this.acknowledgeId, { $set: { endTime: new Date() } });
 
+    this.provider = this.acknowledge.requestee;
+    this.start = moment(this.acknowledge.startTime).format("h:mm A");
+    this.providername = this.provider.profile.name;
+
     console.log("Ack", this.acknowledge);
+  }
+
+  venmo(){
+    window.open("venmo://paycharge?txn=pay&audience=friends&recipients=" + this.provider.profile.venmo);
   }
 
 
