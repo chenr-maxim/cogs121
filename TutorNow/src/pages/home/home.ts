@@ -6,6 +6,7 @@ import { TutorLocation } from 'api/models';
 import { Geolocation } from '@ionic-native/geolocation';
 import * as moment from 'moment';
 import {ClientRequestPage} from '../client-request/client-request';
+import { RoutingPage } from '../routing/routing';
 
 @Component({
   selector: 'page-home',
@@ -35,6 +36,7 @@ export class HomePage implements OnInit {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
       this.myLocationFound = true;
+      Meteor.users.update(Meteor.userId(),{$set: {'profile.lat': position.coords.latitude, 'profile.lng': position.coords.longitude}});
     });
   }
 

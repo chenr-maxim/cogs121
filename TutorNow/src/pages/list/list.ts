@@ -8,6 +8,7 @@ import { Request, Acknowledge } from 'api/models';
 import { Requests } from 'api/collections/requests';
 import { Acknowledges } from 'api/collections/acknowledges';
 import { InProgressPage } from '../in-progress/in-progress';
+import { RoutingPage } from '../routing/routing';
 
 @Component({
   selector: 'page-list',
@@ -49,6 +50,7 @@ export class ListPage implements OnInit, OnDestroy {
         if(this.isActive) {
           this.publishLocation();
         }
+        Meteor.users.update(Meteor.userId(),{$set: {'profile.lat': position.coords.latitude, 'profile.lng': position.coords.longitude}});
       }
     ));
   }
@@ -73,6 +75,7 @@ export class ListPage implements OnInit, OnDestroy {
                 handler: () => {
                   const acknowledgeId = Acknowledges.collection.insert({
                     requesterId: req.requesterId,
+                    requesteeId: req.requesteeId,
                     handshake: req.handshake,
                     accepted: true
                   });
@@ -84,7 +87,7 @@ export class ListPage implements OnInit, OnDestroy {
 
                   navTransition.then(() => {
                     // push new view and join session
-                    navCtrl.setRoot(InProgressPage, {
+                    navCtrl.setRoot(RoutingPage, {
                       acknowledgeId: acknowledgeId,
                     }, {
                       animate: true
@@ -99,6 +102,7 @@ export class ListPage implements OnInit, OnDestroy {
                 handler: () => {
                   Acknowledges.insert({
                     requesterId: req.requesterId,
+                    requesteeId: req.requesteeId,
                     handshake: req.handshake,
                     accepted: false
                   });

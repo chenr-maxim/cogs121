@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { TutorLocation, Request, Acknowledge } from 'api/models';
 import { Requests } from 'api/collections/requests';
 import { Acknowledges } from 'api/collections/acknowledges';
+import { RoutingPage } from '../routing/routing';
 
 
 @Component({
@@ -63,7 +64,7 @@ export class ClientRequestPage {
           handle.stop();
           //requesting = false;
           navTransition.then(() => {
-            navCtrl.setRoot(InProgressPage, {
+            navCtrl.setRoot(RoutingPage, {
               acknowledgeId: ack._id,
             }, {
               animate: true

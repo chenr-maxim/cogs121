@@ -15,6 +15,10 @@ import { ClientSummaryPage } from '../pages/client-summary/client-summary';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { ClientRequestPage } from '../pages/client-request/client-request';
 import { InProgressPage } from '../pages/in-progress/in-progress';
+import { RoutingPage } from '../pages/routing/routing';
+
+import { DirectionsMapDirective } from '../pages/routing/directions';
+
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera, CameraOptions } from '@ionic-native/camera'
 
@@ -35,6 +39,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AccountSettingsPage,
     ClientRequestPage,
     InProgressPage,
+    RoutingPage,
+    DirectionsMapDirective,
   ],
   imports: [
     Ionic2RatingModule,
@@ -56,7 +62,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AccountSettingsPage,
     ClientRequestPage,
     InProgressPage,
-
+    RoutingPage,
   ],
   providers: [
     StatusBar,
