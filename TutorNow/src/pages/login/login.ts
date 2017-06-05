@@ -53,7 +53,7 @@ export class LoginPage {
           {name:'Tour Guide', value:'3', checked:false},
           {name:'Miscellaneous', value:'4', checked:false}],
       }}});
-      this.navCtrl.setRoot(ChooseServicePage, {}, {
+      this.navCtrl.setRoot(HomePage, {}, {
         animate: true
       });
     }).catch((e) => {

@@ -54,7 +54,7 @@ export class ClientSummaryPage {
   returnToHome() {
     let alert = this.alertCtrl.create({
       title: 'Review Submitted!',
-      subTitle: 'You have reviewed + provider',
+      subTitle: 'You have successfully submitted a review',
       buttons: [{
         text: 'Return to Home page',
         handler: () => {
